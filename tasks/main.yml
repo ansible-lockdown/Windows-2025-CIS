@@ -20,7 +20,7 @@
   ansible.builtin.assert:
     that:
       - ansible_os_family == 'Windows'
-      - ansible_distribution | regex_search('(Microsoft Windows Server 2025)')
+      - ansible_distribution is regex('Microsoft Windows Server 2025')
     success_msg: "{{ ansible_distribution }} {{ ansible_distribution_major_version }} is the detected operating system."
     fail_msg: "This role can only be run against Windows Server 2025 Editions. {{ ansible_distribution }} {{ ansible_distribution_major_version }} is not supported."
 

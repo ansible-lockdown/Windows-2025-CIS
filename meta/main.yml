@@ -1,0 +1,66 @@
+---
+
+galaxy_info:
+  author: "MindPoint Group"
+  description: "Ansible Role to Apply The Windows Server 2025 CIS Benchmark"
+  company: "MindPoint Group"
+  license: MIT
+  role_name: windows_2025_cis
+  namespace: mindpointgroup
+  min_ansible_version: "2.16"
+  platforms:
+    - name: Windows
+      versions:
+        - "2025"
+  galaxy_tags:
+    - accesscontrol
+    - activedirectory
+    - auditpolicy
+    - automation
+    - azure
+    - benchmark
+    - cis
+    - cisbenchmark
+    - ciscompliance
+    - cloudhardening
+    - compliance
+    - compliancehardening
+    - complianceascode
+    - configurationmanagement
+    - dc
+    - domaincontroller
+    - domainmember
+    - encryption
+    - eventlogging
+    - gpo
+    - grouppolicy
+    - hardening
+    - infrastructureascode
+    - logging
+    - microsoft
+    - monitoring
+    - memberserver
+    - ms
+    - oshardening
+    - patchmanagement
+    - patching
+    - policymanagement
+    - privilegedaccess
+    - remediation
+    - rolebasedaccess
+    - security
+    - system
+    - systemintegrity
+    - vulnerabilitymanagement
+    - windows
+    - windows2025
+    - win2025
+    - windows2025
+    - windowssecurity
+    - windowsserver
+    - windowsserver2025
+collections:
+  - ansible.windows
+  - community.windows
+  - community.general
+dependencies: []

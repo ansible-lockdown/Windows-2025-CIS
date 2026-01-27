@@ -849,7 +849,7 @@
     users:
       - Guests
       - Local Account
-    action: set
+    action: add
 
 - name: "2.2.28 | PATCH | Ensure Enable computer and user accounts to be trusted for delegation is set to Administrators DC only | Domain Controller"
   when:

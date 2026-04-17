@@ -454,7 +454,11 @@
 - name: "9.3.4 | PATCH | Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules' is set to 'No'"
   when:
     - win25cis_rule_9_3_4
+<<<<<<< HEAD
     - not (win_skip_for_test | bool)
+=======
+    - not win_skip_for_test
+>>>>>>> ae97a23 (Release CIS v1.0.0 To Public)
   tags:
     - level1-domaincontroller
     - level1-memberserver

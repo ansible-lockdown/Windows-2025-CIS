@@ -15,7 +15,7 @@ April 2026
     - [#83](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/83) - Thanks @exu-g (Windows 2022 Issue Added Here To Update 2025)
     - [#81](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/81) - Thanks @davidstanaway (Windows 2022 Issue Added Here To Update 2025)
   - PR's Addressed:
-    - [#3](https://github.com/ansible-lockdown/Windows-2025-CIS/pull/3) - Thanks @MatthieuLeboeuf 
+    - [#3](https://github.com/ansible-lockdown/Windows-2025-CIS/pull/3) - Thanks @MatthieuLeboeuf
 
 ## Release 1.0.0
 

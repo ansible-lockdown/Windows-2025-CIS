@@ -858,7 +858,7 @@
   community.windows.win_lineinfile:
     path: "C:\\Windows\\SYSVOL\\sysvol\\{{ prelim_discovered_domain_name }}\\Policies\\{{ item.gpo_guid }}\\Machine\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf"
     regexp: "^SeDenyNetworkLogonRight =.*$"
-    line: "SeDenyNetworkLogonRight = Guests, Local Account, Administrators"
+    line: "SeDenyNetworkLogonRight = Guests, S-1-5-114"
     insertafter: "^\\[Privilege Rights\\]$"
   loop:
     - gpo_guid: "{{ win25cis_l1_ms_gpo_guid | default('') ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"

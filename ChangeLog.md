@@ -1,5 +1,10 @@
 # ChangeLog
 
+## Release 1.2.0
+
+August 2026
+  - 2.2.22 has been updated to reflect the correct values in remediation and the GPO creation (Guests and S-1-5-114) Thanks -Evil-
+
 ## Release 1.1.0
 
 April 2026
@@ -13,9 +18,8 @@ April 2026
     - [#84](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/84) - Thanks @Randriy-bulynko (Windows 2022 Issue Added Here To Update 2025)
     - [#87](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/87) - Thanks @Randriy-bulynko (Windows 2022 Issue Added Here To Update 2025)
     - [#83](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/83) - Thanks @exu-g (Windows 2022 Issue Added Here To Update 2025)
-    - [#81](https://github.com/ansible-lockdown/Windows-2022-CIS/issues/81) - Thanks @davidstanaway (Windows 2022 Issue Added Here To Update 2025)
   - PR's Addressed:
-    - [#3](https://github.com/ansible-lockdown/Windows-2025-CIS/pull/3) - Thanks @MatthieuLeboeuf
+    - [#3](https://github.com/ansible-lockdown/Windows-2025-CIS/pull/3) - Thanks @MatthieuLeboeuf 
 
 ## Release 1.0.0
 

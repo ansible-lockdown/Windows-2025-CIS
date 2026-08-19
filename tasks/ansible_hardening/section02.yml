@@ -691,8 +691,7 @@
     name: SeDenyNetworkLogonRight
     users:
       - Guests
-      - Local Account
-      - Administrators
+      - S-1-5-114
     action: add
 
 - name: "2.2.23 | PATCH | Ensure Deny log on as a batch job to include Guests"

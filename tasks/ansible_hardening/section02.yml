@@ -313,7 +313,7 @@
       - Remote Desktop Users
     action: set
 
-- name: "2.2.11 | PATCH | Ensure Back up files and directories is set to Administrators"
+- name: "2.2.11 | PATCH | Ensure 'Back up files and directories' is set to Administrators"
   when:
     - win25cis_rule_2_2_11
     - prelim_win25cis_is_domain_member
@@ -465,7 +465,7 @@
     users: []
     action: set
 
-- name: "2.2.16 | PATCH | Ensure Create global objects is set to Administrators LOCAL SERVICE NETWORK SERVICE SERVICE"
+- name: "2.2.16 | PATCH | Ensure Create global objects is set to Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE"
   when: win25cis_rule_2_2_16
   tags:
     - level1-domaincontroller
@@ -691,8 +691,7 @@
     name: SeDenyNetworkLogonRight
     users:
       - Guests
-      - Local Account
-      - Administrators
+      - S-1-5-114
     action: add
 
 - name: "2.2.23 | PATCH | Ensure Deny log on as a batch job to include Guests"
@@ -974,7 +973,7 @@
       - NETWORK SERVICE
     action: set
 
-- name: "2.2.32 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE NETWORK SERVICE SERVICE DC only | Domain Controller"
+- name: "2.2.32 | PATCH | Ensure Impersonate a client after authentication is set to Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE DC only | Domain Controller"
   when:
     - win25cis_rule_2_2_32
     - prelim_win25cis_is_domain_controller
@@ -1285,7 +1284,7 @@
     users: []
     action: set
 
-- name: "2.2.41 | PATCH | Ensure Modify firmware environment values is set to Administrators"
+- name: "2.2.41 | PATCH | Ensure 'Modify firmware environment values' is set to Administrators"
   when: win25cis_rule_2_2_41
   tags:
     - level1-domaincontroller
@@ -1443,7 +1442,7 @@
       - NETWORK SERVICE
     action: set
 
-- name: "2.2.46 | PATCH | Ensure Restore files and directories is set to Administrators"
+- name: "2.2.46 | PATCH | Ensure 'Restore files and directories' is set to Administrators"
   when: win25cis_rule_2_2_46
   tags:
     - level1-domaincontroller
@@ -1668,7 +1667,7 @@
       ansible.builtin.import_tasks:
         file: warning_facts.yml
 
-- name: "2.3.2.1 | PATCH | Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
+- name: "2.3.2.1 | PATCH | Ensure 'Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings' is set to Enabled"
   when: win25cis_rule_2_3_2_1
   tags:
     - level1-domaincontroller
@@ -1860,7 +1859,7 @@
     data: 1
     type: dword
 
-- name: "2.3.5.6 | PATCH | Ensure Domain controller Refuse machine account password changes is set to Disabled DC only | Domain Controller"
+- name: "2.3.5.6 | PATCH | Ensure 'Domain controller Refuse machine account password changes' is set to Disabled DC only | Domain Controller"
   when:
     - win25cis_rule_2_3_5_6
     - prelim_win25cis_is_domain_controller
@@ -1993,7 +1992,7 @@
     data: 1
     type: dword
 
-- name: "2.3.6.4 | PATCH | Ensure Domain member Disable machine account password changes is set to Disabled"
+- name: "2.3.6.4 | PATCH | Ensure 'Domain member Disable machine account password changes' is set to Disabled"
   when:
     - win25cis_rule_2_3_6_4
     - not ansible_windows_domain_role == "Primary domain controller"
@@ -2543,7 +2542,7 @@
     data: 1
     type: dword
 
-- name: "2.3.9.5 | PATCH | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | MS Only"
+- name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | MS Only"
   when:
     - win25cis_rule_2_3_9_5
     - prelim_win25cis_is_domain_member
@@ -2580,7 +2579,7 @@
     - NIST800-53R5_SA-8
     - NIST800-53R5_SA-10
   block:
-    - name: "2.3.9.5 | PATCH | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | Apply Registry Setting | MS Only."
+    - name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | Apply Registry Setting | MS Only."
       when:
         - win25cis_smb_server_name_hardening_level == 1 or
           win25cis_smb_server_name_hardening_level == 2
@@ -2590,7 +2589,7 @@
         data: "{{ win25cis_smb_server_name_hardening_level }}"
         type: dword
 
-    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | Warning Check For Variable Standards. | MS Only"
+    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | Warning Check For Variable Standards. | MS Only"
       when:
         - win25cis_smb_server_name_hardening_level == 0 or
           win25cis_smb_server_name_hardening_level > 2
@@ -2599,7 +2598,7 @@
           - "Warning!! You have an invalid number variable set for win25cis_smb_server_name_hardening_level. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | Warn Count."
+    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | Warn Count."
       vars:
         warn_control_id: '2.3.9.5'
       when:
@@ -2781,7 +2780,7 @@
         ]
 
     - name: "2.3.10.9 | AUDIT | Configure Network access Remotely accessible registry paths and sub-paths | Check if AD Certificate Services feature is installed."
-      community.windows.win_feature_info:
+      ansible.windows.win_feature_info:
         name: AD-Certificate
       register: rule_2_3_10_9_adcs_feature
 
@@ -2791,7 +2790,7 @@
         rule_2_3_10_9_remote_registry_paths: "{{ rule_2_3_10_9_remote_registry_paths + ['SYSTEM\\CurrentControlSet\\Services\\CertSvc'] }}"
 
     - name: "2.3.10.9 | AUDIT | Check if WINS feature is installed."
-      community.windows.win_feature_info:
+      ansible.windows.win_feature_info:
         name: WINS
       register: rule_2_3_10_9_wins_feature
 

@@ -386,7 +386,7 @@
       when: "'Failure' not in rule_17_4_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce923b-69ae-11d9-bed3-505054503030}" /failure:enable
 
-- name: "17.4.2 | PATCH | Ensure Audit Directory Service Changes is set to include Success DC only | Domain Controller"
+- name: "17.4.2 | PATCH | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Domain Controller"
   when:
     - win25cis_rule_17_4_2
     - prelim_win25cis_is_domain_controller
@@ -406,14 +406,14 @@
     - NIST800-53R5_AU-7
     - NIST800-53R5_AU-12
   block:
-    - name: "17.4.2 | AUDIT | Ensure Audit Directory Service Changes is set to include Success DC only | Get current audit events for Directory Service Changes | Domain Controller"
+    - name: "17.4.2 | AUDIT | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Get current audit events for Directory Service Changes | Domain Controller"
       ansible.windows.win_shell: AuditPol /get /subcategory:"{0cce923c-69ae-11d9-bed3-505054503030}" -r | ConvertFrom-Csv | Select-Object -expand "Inclusion Setting"
       changed_when: false
       failed_when: false
       check_mode: false
       register: rule_17_4_2_audit
 
-    - name: "17.4.2 | PATCH | Ensure Audit Directory Service Changes is set to include Success DC only | Enable Success for Directory Service Changes | Domain Controller"
+    - name: "17.4.2 | PATCH | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Enable Success for Directory Service Changes | Domain Controller"
       when: "'Success' not in rule_17_4_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce923c-69ae-11d9-bed3-505054503030}" /success:enable
 

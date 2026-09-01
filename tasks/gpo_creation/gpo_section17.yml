@@ -389,7 +389,7 @@
   loop_control:
     label: "{{ item.gpo_name }} - {{ item.gpo_guid }}"
 
-- name: "17.4.2 | GPO | Ensure Audit Directory Service Changes is set to include Success DC only | Domain Controller"
+- name: "17.4.2 | GPO | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Domain Controller"
   when:
     - win25cis_rule_17_4_2
     - "'Skipped' not in item.gpo_guid"

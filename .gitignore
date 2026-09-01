@@ -12,6 +12,7 @@ ignore*
 .github/*
 # VSCode
 .vscode
+AL_QA_Report*.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

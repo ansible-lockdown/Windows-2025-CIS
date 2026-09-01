@@ -1,13 +1,13 @@
 ---
 
 galaxy_info:
-  author: "MindPoint Group"
+  author: "Ansible-Lockdown Team"
   description: "Ansible Role to Apply The Windows Server 2025 CIS Benchmark"
-  company: "MindPoint Group"
+  company: "MindPoint Group - A Quantum Sky Company"
   license: MIT
   role_name: windows_2025_cis
   namespace: mindpointgroup
-  min_ansible_version: "2.16"
+  min_ansible_version: "2.16.1"
   platforms:
     - name: Windows
       versions:

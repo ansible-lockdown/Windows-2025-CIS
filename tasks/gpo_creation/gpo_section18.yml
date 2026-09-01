@@ -1497,7 +1497,7 @@
   changed_when: '"Patched" in rule_18_6_7_3_results.stdout'
   register: rule_18_6_7_3_results
 
-- name: "18.6.7.4 | GPO | Ensure 'Enable remote mailslots' is set to Disabled"
+- name: "18.6.7.4 | GPO | Ensure 'Enable authentication rate limiter' is set to Enabled"
   when:
     - win25cis_rule_18_6_7_4
     - "'(Skipped)' not in item"
@@ -1505,6 +1505,43 @@
     - level1-domaincontroller
     - level1-memberserver
     - rule_18.6.7.4
+    - patch
+    - smb
+    - gpo
+    - NIST800-171_3.1.8
+    - NIST800-53_AC-7
+    - NIST800-53R5_AC-7
+  ansible.windows.win_shell: |
+    $gpoName = "{{ item }}"
+    $registryKeyPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\LanmanServer"
+    $registryValueName = "EnableAuthRateLimiter"
+    $type = "DWORD"
+    $desiredValue = 1
+
+    $currentValue = (Get-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -ErrorAction SilentlyContinue).Value
+
+    if ($currentValue -ne $desiredValue) {
+        Set-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -Type $type -Value $desiredValue
+        Write-Output "Patched"
+    } else {
+        Write-Output "No Change Needed"
+    }
+  loop:
+    - "{{ win25cis_l1_dc_gpo_name ~ ( '(Skipped)' if not win25cis_l1_dc_gpo else '' ) }}"
+    - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
+  loop_control:
+    label: "{{ item }}"
+  changed_when: '"Patched" in rule_18_6_7_4_results.stdout'
+  register: rule_18_6_7_4_results
+
+- name: "18.6.7.5 | GPO | Ensure 'Enable remote mailslots' is set to Disabled"
+  when:
+    - win25cis_rule_18_6_7_5
+    - "'(Skipped)' not in item"
+  tags:
+    - level1-domaincontroller
+    - level1-memberserver
+    - rule_18.6.7.5
     - patch
     - smb
     - gpo
@@ -1531,17 +1568,17 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_7_4_results.stdout'
-  register: rule_18_6_7_4_results
+  changed_when: '"Patched" in rule_18_6_7_5_results.stdout'
+  register: rule_18_6_7_5_results
 
-- name: "18.6.7.5 | GPO | Ensure 'Mandate the minimum version of SMB' is set to 'Enabled: 3.1.1'"
+- name: "18.6.7.6 | GPO | Ensure 'Mandate the minimum version of SMB' is set to 'Enabled: 3.1.1'"
   when:
-    - win25cis_rule_18_6_7_5
+    - win25cis_rule_18_6_7_6
     - "'(Skipped)' not in item"
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.7.5
+    - rule_18.6.7.6
     - patch
     - smb
     - gpo
@@ -1585,15 +1622,15 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_7_5_results.stdout'
-  register: rule_18_6_7_5_results
+  changed_when: '"Patched" in rule_18_6_7_6_results.stdout'
+  register: rule_18_6_7_6_results
 
-- name: "18.6.7.6 | GPO | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more"
-  when: win25cis_rule_18_6_7_6
+- name: "18.6.7.7 | GPO | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more"
+  when: win25cis_rule_18_6_7_7
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.7.6
+    - rule_18.6.7.7
     - patch
     - smb
     - gpo
@@ -1601,7 +1638,7 @@
     - NIST800-53_AC-7
     - NIST800-53R5_AC-7
   block:
-    - name: "18.6.7.6 | GPO | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Set registry value"
+    - name: "18.6.7.7 | GPO | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Set registry value"
       when:
         - "'(Skipped)' not in item"
         - win25cis_invalid_authentication_delay_time | int >= 2000
@@ -1625,19 +1662,19 @@
         - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
       loop_control:
         label: "{{ item }}"
-      changed_when: '"Patched" in rule_18_6_7_6_results.stdout'
-      register: rule_18_6_7_6_results
+      changed_when: '"Patched" in rule_18_6_7_7_results.stdout'
+      register: rule_18_6_7_7_results
 
-    - name: "18.6.7.6 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Invalid variable for authentication rate limiter delay"
+    - name: "18.6.7.7 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Invalid variable for authentication rate limiter delay"
       when: win25cis_invalid_authentication_delay_time | int < 2000
       ansible.builtin.debug:
         msg:
           - "Warning!! You have an invalid setting for win25cis_invalid_authentication_delay_time. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "18.6.7.6 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Warn Count for Invalid Variable"
+    - name: "18.6.7.7 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Warn Count for Invalid Variable"
       vars:
-        warn_control_id: '18.6.7.6'
+        warn_control_id: '18.6.7.7'
       when: win25cis_invalid_authentication_delay_time | int < 2000
       ansible.builtin.import_tasks:
         file: warning_facts.yml
@@ -1753,7 +1790,7 @@
   changed_when: '"Patched" in rule_18_6_8_3_results.stdout'
   register: rule_18_6_8_3_results
 
-- name: "18.6.8.4 | GPO | Ensure 'Enable authentication rate limiter' is set to Enabled"
+- name: "18.6.8.4 | GPO | Ensure Enable insecure guest logons is set to Disabled"
   when:
     - win25cis_rule_18_6_8_4
     - "'(Skipped)' not in item"
@@ -1761,43 +1798,6 @@
     - level1-domaincontroller
     - level1-memberserver
     - rule_18.6.8.4
-    - patch
-    - smb
-    - gpo
-    - NIST800-171_3.1.13
-    - NIST800-53_AC-7
-    - NIST800-53R5_AC-7
-  ansible.windows.win_shell: |
-    $gpoName = "{{ item }}"
-    $registryKeyPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\LanmanServer"
-    $registryValueName = "EnableAuthRateLimiter"
-    $type = "DWORD"
-    $desiredValue = 1
-
-    $currentValue = (Get-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -ErrorAction SilentlyContinue).Value
-
-    if ($currentValue -ne $desiredValue) {
-        Set-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -Type $type -Value $desiredValue
-        Write-Output "Patched"
-    } else {
-        Write-Output "No Change Needed"
-    }
-  loop:
-    - "{{ win25cis_l1_dc_gpo_name ~ ( '(Skipped)' if not win25cis_l1_dc_gpo else '' ) }}"
-    - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
-  loop_control:
-    label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_8_4_results.stdout'
-  register: rule_18_6_8_4_results
-
-- name: "18.6.8.5 | GPO | Ensure Enable insecure guest logons is set to Disabled"
-  when:
-    - win25cis_rule_18_6_8_5
-    - "'(Skipped)' not in item"
-  tags:
-    - level1-domaincontroller
-    - level1-memberserver
-    - rule_18.6.8.5
     - patch
     - fonts
     - gpo
@@ -1828,17 +1828,17 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_8_5_results.stdout'
-  register: rule_18_6_8_5_results
+  changed_when: '"Patched" in rule_18_6_8_4_results.stdout'
+  register: rule_18_6_8_4_results
 
-- name: "18.6.8.6 | GPO | Ensure 'Enable remote mailslots' is set to Disabled"
+- name: "18.6.8.5 | GPO | Ensure 'Enable remote mailslots' is set to Disabled"
   when:
-    - win25cis_rule_18_6_8_6
+    - win25cis_rule_18_6_8_5
     - "'(Skipped)' not in item"
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.6
+    - rule_18.6.8.5
     - patch
     - smb
     - gpo
@@ -1865,17 +1865,17 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_8_6_results.stdout'
-  register: rule_18_6_8_6_results
+  changed_when: '"Patched" in rule_18_6_8_5_results.stdout'
+  register: rule_18_6_8_5_results
 
-- name: "18.6.8.7 | GPO | Ensure 'Mandate the minimum version of SMB' is set to Enabled: 3.1.1"
+- name: "18.6.8.6 | GPO | Ensure 'Mandate the minimum version of SMB' is set to Enabled: 3.1.1"
   when:
-    - win25cis_rule_18_6_8_7
+    - win25cis_rule_18_6_8_6
     - "'(Skipped)' not in item"
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.7
+    - rule_18.6.8.6
     - patch
     - smb
     - gpo
@@ -1916,17 +1916,17 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_8_7_results.stdout'
-  register: rule_18_6_8_7_results
+  changed_when: '"Patched" in rule_18_6_8_6_results.stdout'
+  register: rule_18_6_8_6_results
 
-- name: "18.6.8.8 | GPO | Ensure 'Require Encryption' is set to 'Enabled'"
+- name: "18.6.8.7 | GPO | Ensure 'Require Encryption' is set to 'Enabled'"
   when:
-    - win25cis_rule_18_6_8_8
+    - win25cis_rule_18_6_8_7
     - "'(Skipped)' not in item"
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.8
+    - rule_18.6.8.7
     - patch
     - fonts
     - gpo
@@ -1957,8 +1957,8 @@
     - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
   loop_control:
     label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_6_8_8_results.stdout'
-  register: rule_18_6_8_8_results
+  changed_when: '"Patched" in rule_18_6_8_7_results.stdout'
+  register: rule_18_6_8_7_results
 
 - name: "18.6.9.1 | GPO | Ensure Turn on Mapper I/O LLTDIO driver is set to Disabled"
   when: win25cis_rule_18_6_9_1
@@ -3146,7 +3146,7 @@
   changed_when: '"Patched" in rule_18_7_10_results.stdout'
   register: rule_18_7_10_results
 
-- name: "18.7.11 | GPO | Ensure Manage processing of Queue-specific files is set to Enabled: Limit Queue-specific files to Color profiles"
+- name: "18.7.11 | GPO | Ensure 'Manage processing of Queue-specific files' is set to Enabled: Limit Queue-specific files to Color profiles"
   when:
     - win25cis_rule_18_7_11
     - "'(Skipped)' not in item"
@@ -4436,7 +4436,7 @@
   changed_when: '"Patched" in rule_18_9_20_1_7_results.stdout'
   register: rule_18_9_20_1_7_results
 
-- name: "18.9.20.1.8 | GPO | Ensure Turn off Search Companion content file updates is set to Enabled"
+- name: "18.9.20.1.8 | GPO | Ensure 'Turn off Search Companion content file updates' is set to Enabled"
   when:
     - win25cis_rule_18_9_20_1_8
     - "'(Skipped)' not in item"
@@ -4912,7 +4912,7 @@
   ansible.windows.win_shell: |
     $gpoName = "{{ item }}"
     $registryKeyPath = "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS"
-    $registryValueName = "PwdExpirationProtectionEnabled"
+    $registryValueName = "PasswordExpirationProtectionEnabled"
     $type = "DWORD"
     $desiredValue = 1
 
@@ -7390,44 +7390,6 @@
   changed_when: '"Patched" in rule_18_10_16_7_results.stdout'
   register: rule_18_10_16_7_results
 
-- name: "18.10.16.8 | GPO | Ensure 'Toggle user control over Insider builds' is set to Disabled"
-  when:
-    - win25cis_rule_18_10_16_8
-    - "'(Skipped)' not in item"
-  tags:
-    - level1-domaincontroller
-    - level1-memberserver
-    - rule_18.10.16.8
-    - patch
-    - gpo
-    - windowsupdate
-    - insider
-    - NIST800-171_3.4.6
-    - NIST800-53_CM-6
-    - NIST800-53R5_CM-6
-  ansible.windows.win_shell: |
-    $gpoName = "{{ item }}"
-    $registryKeyPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds"
-    $registryValueName = "AllowBuildPreview"
-    $type = "DWORD"
-    $desiredValue = 0
-
-    $currentValue = (Get-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -ErrorAction SilentlyContinue).Value
-
-    if ($currentValue -ne $desiredValue) {
-        Set-GPRegistryValue -Name $gpoName -Key $registryKeyPath -ValueName $registryValueName -Type $type -Value $desiredValue
-        Write-Output "Patched"
-    } else {
-        Write-Output "No Change Needed"
-    }
-  loop:
-    - "{{ win25cis_l1_dc_gpo_name ~ ( '(Skipped)' if not win25cis_l1_dc_gpo else '' ) }}"
-    - "{{ win25cis_l1_ms_gpo_name ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
-  loop_control:
-    label: "{{ item }}"
-  changed_when: '"Patched" in rule_18_10_16_8_results.stdout'
-  register: rule_18_10_16_8_results
-
 - name: "18.10.18.1 | GPO | Ensure Enable App Installer is set to Disabled"
   when:
     - win25cis_rule_18_10_18_1
@@ -8559,7 +8521,7 @@
   changed_when: '"Patched" in rule_18_10_43_5_2_results.stdout'
   register: rule_18_10_43_5_2_results
 
-- name: "18.10.43.6.1.1 | GPO | Ensure Configure Attack Surface Reduction rules is set to Enabled"
+- name: "18.10.43.6.1.1 | GPO | Ensure 'Configure Attack Surface Reduction rules' is set to Enabled"
   when:
     - win25cis_rule_18_10_43_6_1_1
     - "'(Skipped)' not in item"
@@ -10300,7 +10262,7 @@
     - name: "18.10.57.3.10.1 | GPO | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Set 'Time Limit for Active but Idle RDP Sessions' to 15 minutes or less."
       when:
         - "'(Skipped)' not in item"
-        - win25cis_idle_rdp_session_disconnect_time > 0 
+        - win25cis_idle_rdp_session_disconnect_time > 0
         - win25cis_idle_rdp_session_disconnect_time <= 900000
       ansible.windows.win_shell: |
         $gpoName = "{{ item }}"
@@ -10598,7 +10560,7 @@
   changed_when: '"Patched" in rule_18_10_59_2_results.stdout'
   register: rule_18_10_59_2_results
 
-- name: "18.10.59.3 | GPO | Ensure Allow indexing of encrypted files is set to Disabled"
+- name: "18.10.59.3 | GPO | Ensure 'Allow indexing of encrypted files' is set to Disabled"
   when:
     - win25cis_rule_18_10_59_3
     - "'(Skipped)' not in item"
@@ -11551,7 +11513,7 @@
   changed_when: '"Patched" in rule_18_10_90_1_results.stdout'
   register: rule_18_10_90_1_results
 
-- name: "18.10.92.2.1 | GPO | Ensure Prevent users from modifying settings is set to Enabled"
+- name: "18.10.92.2.1 | GPO | Ensure 'Prevent users from modifying settings' is set to Enabled"
   when:
     - win25cis_rule_18_10_92_2_1
     - "'(Skipped)' not in item"
@@ -11636,7 +11598,7 @@
   changed_when: '"Patched" in rule_18_10_93_1_1_results.stdout'
   register: rule_18_10_93_1_1_results
 
-- name: "18.10.93.2.1 | GPO | Ensure Configure Automatic Updates is set to Enabled"
+- name: "18.10.93.2.1 | GPO | Ensure 'Configure Automatic Updates' is set to Enabled"
   when:
     - win25cis_rule_18_10_93_2_1
     - "'(Skipped)' not in item"

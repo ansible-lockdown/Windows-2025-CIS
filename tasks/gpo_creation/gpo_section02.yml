@@ -381,7 +381,7 @@
   loop_control:
     label: "{{ item.gpo_name }} - {{ item.gpo_guid }}"
 
-- name: "2.2.11 | GPO | Ensure Back up files and directories is set to Administrators."
+- name: "2.2.11 | GPO | Ensure 'Back up files and directories' is set to Administrators."
   when:
     - win25cis_rule_2_2_11
     - "'Skipped' not in item.gpo_guid"
@@ -858,7 +858,7 @@
   community.windows.win_lineinfile:
     path: "C:\\Windows\\SYSVOL\\sysvol\\{{ prelim_discovered_domain_name }}\\Policies\\{{ item.gpo_guid }}\\Machine\\Microsoft\\Windows NT\\SecEdit\\GptTmpl.inf"
     regexp: "^SeDenyNetworkLogonRight =.*$"
-    line: "SeDenyNetworkLogonRight = Guests, Local Account, Administrators"
+    line: "SeDenyNetworkLogonRight = Guests, S-1-5-114"
     insertafter: "^\\[Privilege Rights\\]$"
   loop:
     - gpo_guid: "{{ win25cis_l1_ms_gpo_guid | default('') ~ ( '(Skipped)' if not win25cis_l1_ms_gpo else '' ) }}"
@@ -1628,7 +1628,7 @@
   loop_control:
     label: "{{ item.gpo_name }} - {{ item.gpo_guid }}"
 
-- name: "2.2.41 | GPO | Ensure Modify firmware environment values is set to Administrators."
+- name: "2.2.41 | GPO | Ensure 'Modify firmware environment values' is set to Administrators."
   when:
     - win25cis_rule_2_2_41
     - "'Skipped' not in item.gpo_guid"
@@ -2178,7 +2178,7 @@
       ansible.builtin.import_tasks:
         file: warning_facts.yml
 
-- name: "2.3.2.1 | GPO | Ensure Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings is set to Enabled"
+- name: "2.3.2.1 | GPO | Ensure 'Audit Force audit policy subcategory settings Windows Vista or later to override audit policy category settings' is set to Enabled"
   when:
     - win25cis_rule_2_3_2_1
     - "'(Skipped)' not in item"
@@ -2540,7 +2540,7 @@
   changed_when: '"Patched" in rule_2_3_5_5_results.stdout'
   register: rule_2_3_5_5_results
 
-- name: "2.3.5.6 | GPO | Ensure Domain controller Refuse machine account password changes is set to Disabled DC only"
+- name: "2.3.5.6 | GPO | Ensure 'Domain controller Refuse machine account password changes' is set to Disabled DC only"
   when:
     - win25cis_rule_2_3_5_6
     - "'(Skipped)' not in item"
@@ -2751,7 +2751,7 @@
   changed_when: '"Patched" in rule_2_3_6_3_results.stdout'
   register: rule_2_3_6_3_results
 
-- name: "2.3.6.4 | GPO | Ensure Domain member Disable machine account password changes is set to Disabled"
+- name: "2.3.6.4 | GPO | Ensure 'Domain member Disable machine account password changes' is set to Disabled"
   when:
     - win25cis_rule_2_3_6_4
     - "'(Skipped)' not in item"
@@ -3705,7 +3705,7 @@
   changed_when: '"Patched" in rule_2_3_9_4_results.stdout'
   register: rule_2_3_9_4_results
 
-- name: "2.3.9.5 | GPO | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | MS Only"
+- name: "2.3.9.5 | GPO | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | MS Only"
   when: win25cis_rule_2_3_9_5
   tags:
     - level1-memberserver
@@ -3740,7 +3740,7 @@
     - NIST800-53R5_SA-8
     - NIST800-53R5_SA-10
   block:
-    - name: "2.3.9.5 | GPO | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | Set GPO Value | MS Only"
+    - name: "2.3.9.5 | GPO | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | Set GPO Value | MS Only"
       when:
         - win25cis_smb_server_name_hardening_level == 1 or
           win25cis_smb_server_name_hardening_level == 2
@@ -3770,7 +3770,7 @@
       changed_when: '"Patched" in rule_2_3_9_5_results.stdout'
       register: rule_2_3_9_5_results
 
-    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server Server SPN target name validation level is set to Accept if provided by client or higher. | Warning Check For Variable"
+    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher. | Warning Check For Variable"
       when:
         - win25cis_smb_server_name_hardening_level == 0 or
           win25cis_smb_server_name_hardening_level > 2

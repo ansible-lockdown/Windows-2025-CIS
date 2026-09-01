@@ -95,7 +95,7 @@ There are certain settings that, while they can be enforced in the registry, can
 
 ## Matching A Security Level For CIS 🔐
 
-It is possible to to only run level 1 or level 2 controls for CIS as well as other profile definitions that are set in the CIS release.
+It is possible to only run level 1 or level 2 controls for CIS as well as other profile definitions that are set in the CIS release.
 This is managed using tags:
 
 - level1-domaincontroller

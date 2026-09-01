@@ -791,12 +791,29 @@
     data: 1
     type: dword
 
-- name: "18.6.7.4 | PATCH | Ensure 'Enable remote mailslots' is set to Disabled"
+- name: "18.6.7.4 | PATCH | Ensure 'Enable authentication rate limiter' is set to Enabled"
   when: win25cis_rule_18_6_7_4
   tags:
     - level1-domaincontroller
     - level1-memberserver
     - rule_18.6.7.4
+    - patch
+    - smb
+    - NIST800-171_3.1.8
+    - NIST800-53_AC-7
+    - NIST800-53R5_AC-7
+  ansible.windows.win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
+    name: EnableAuthRateLimiter
+    data: 1
+    type: dword
+
+- name: "18.6.7.5 | PATCH | Ensure 'Enable remote mailslots' is set to Disabled"
+  when: win25cis_rule_18_6_7_5
+  tags:
+    - level1-domaincontroller
+    - level1-memberserver
+    - rule_18.6.7.5
     - patch
     - smb
     - NIST800-171_3.1.13
@@ -808,12 +825,12 @@
     data: 0
     type: dword
 
-- name: "18.6.7.5 | PATCH | Ensure 'Mandate the minimum version of SMB' is set to 'Enabled: 3.1.1'"
-  when: win25cis_rule_18_6_7_5
+- name: "18.6.7.6 | PATCH | Ensure 'Mandate the minimum version of SMB' is set to 'Enabled: 3.1.1'"
+  when: win25cis_rule_18_6_7_6
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.7.5
+    - rule_18.6.7.6
     - patch
     - smb
     - NIST800-171_3.13.8
@@ -839,19 +856,19 @@
     data: 785
     type: dword
 
-- name: "18.6.7.6 | PATCH | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more"
-  when: win25cis_rule_18_6_7_6
+- name: "18.6.7.7 | PATCH | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more"
+  when: win25cis_rule_18_6_7_7
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.7.6
+    - rule_18.6.7.7
     - patch
     - smb
     - NIST800-171_3.1.13
     - NIST800-53_AC-7
     - NIST800-53R5_AC-7
   block:
-    - name: "18.6.7.6 | PATCH | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Set registry value"
+    - name: "18.6.7.7 | PATCH | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Set registry value"
       when: win25cis_invalid_authentication_delay_time | int >= 2000
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
@@ -859,16 +876,16 @@
         data: "{{ win25cis_invalid_authentication_delay_time }}"
         type: dword
 
-    - name: "18.6.7.6 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Invalid variable for authentication rate limiter delay"
+    - name: "18.6.7.7 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Invalid variable for authentication rate limiter delay"
       when: win25cis_invalid_authentication_delay_time | int < 2000
       ansible.builtin.debug:
         msg:
           - "Warning!! You have an invalid setting for win25cis_invalid_authentication_delay_time. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "18.6.7.6 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Warn Count for Invalid Variable"
+    - name: "18.6.7.7 | AUDIT | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Warn Count for Invalid Variable"
       vars:
-        warn_control_id: '18.6.7.6'
+        warn_control_id: '18.6.7.7'
       when: win25cis_invalid_authentication_delay_time | int < 2000
       ansible.builtin.import_tasks:
         file: warning_facts.yml
@@ -924,29 +941,12 @@
     data: 1
     type: dword
 
-- name: "18.6.8.4 | PATCH | Ensure 'Enable authentication rate limiter' is set to Enabled"
+- name: "18.6.8.4 | PATCH | Ensure Enable insecure guest logons is set to Disabled"
   when: win25cis_rule_18_6_8_4
   tags:
     - level1-domaincontroller
     - level1-memberserver
     - rule_18.6.8.4
-    - patch
-    - smb
-    - NIST800-171_3.1.13
-    - NIST800-53_AC-7
-    - NIST800-53R5_AC-7
-  ansible.windows.win_regedit:
-    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
-    name: EnableAuthRateLimiter
-    data: 1
-    type: dword
-
-- name: "18.6.8.5 | PATCH | Ensure Enable insecure guest logons is set to Disabled"
-  when: win25cis_rule_18_6_8_5
-  tags:
-    - level1-domaincontroller
-    - level1-memberserver
-    - rule_18.6.8.5
     - patch
     - fonts
     - NIST800-171_3.4.6
@@ -959,12 +959,12 @@
     data: 0
     type: dword
 
-- name: "18.6.8.6 | PATCH | Ensure 'Enable remote mailslots' is set to Disabled"
-  when: win25cis_rule_18_6_8_6
+- name: "18.6.8.5 | PATCH | Ensure 'Enable remote mailslots' is set to Disabled"
+  when: win25cis_rule_18_6_8_5
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.6
+    - rule_18.6.8.5
     - patch
     - smb
     - NIST800-171_3.1.13
@@ -976,12 +976,12 @@
     data: 0
     type: dword
 
-- name: "18.6.8.7 | PATCH | Ensure 'Mandate the minimum version of SMB' is set to Enabled: 3.1.1"
-  when: win25cis_rule_18_6_8_7
+- name: "18.6.8.6 | PATCH | Ensure 'Mandate the minimum version of SMB' is set to Enabled: 3.1.1"
+  when: win25cis_rule_18_6_8_6
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.7
+    - rule_18.6.8.6
     - patch
     - smb
     - NIST800-171_3.13.8
@@ -1007,12 +1007,12 @@
     data: 785
     type: dword
 
-- name: "18.6.8.8 | PATCH | Ensure 'Require Encryption' is set to 'Enabled'"
-  when: win25cis_rule_18_6_8_8
+- name: "18.6.8.7 | PATCH | Ensure 'Require Encryption' is set to 'Enabled'"
+  when: win25cis_rule_18_6_8_7
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - rule_18.6.8.8
+    - rule_18.6.8.7
     - patch
     - fonts
     - NIST800-171_3.4.6
@@ -1598,7 +1598,7 @@
     data: 1
     type: dword
 
-- name: "18.7.11 | PATCH | Ensure Manage processing of Queue-specific files is set to Enabled: Limit Queue-specific files to Color profiles"
+- name: "18.7.11 | PATCH | Ensure 'Manage processing of Queue-specific files' is set to Enabled: Limit Queue-specific files to Color profiles"
   when: win25cis_rule_18_7_11
   tags:
     - level1-domaincontroller
@@ -2255,7 +2255,7 @@
     data: 1
     type: dword
 
-- name: "18.9.20.1.8 | PATCH | Ensure Turn off Search Companion content file updates is set to Enabled"
+- name: "18.9.20.1.8 | PATCH | Ensure 'Turn off Search Companion content file updates' is set to Enabled"
   when: win25cis_rule_18_9_20_1_8
   tags:
     - level2-domaincontroller
@@ -2485,7 +2485,7 @@
     - NIST800-53R5_IA-5_1_d
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
-    name: PwdExpirationProtectionEnabled
+    name: PasswordExpirationProtectionEnabled
     data: 1
     type: dword
 
@@ -3712,24 +3712,6 @@
     data: 1
     type: dword
 
-- name: "18.10.16.8 | PATCH | Ensure 'Toggle user control over Insider builds' is set to Disabled"
-  when: win25cis_rule_18_10_16_8
-  tags:
-    - level1-domaincontroller
-    - level1-memberserver
-    - rule_18.10.16.8
-    - patch
-    - windowsupdate
-    - insider
-    - NIST800-171_3.4.6
-    - NIST800-53_CM-6
-    - NIST800-53R5_CM-6
-  ansible.windows.win_regedit:
-    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds
-    name: AllowBuildPreview
-    data: 0
-    type: dword
-
 - name: "18.10.18.1 | PATCH | Ensure Enable App Installer is set to Disabled"
   when: win25cis_rule_18_10_18_1
   tags:
@@ -4284,7 +4266,7 @@
     data: 0
     type: dword
 
-- name: "18.10.43.6.1.1 | PATCH | Ensure Configure Attack Surface Reduction rules is set to Enabled"
+- name: "18.10.43.6.1.1 | PATCH | Ensure 'Configure Attack Surface Reduction rules' is set to Enabled"
   when: win25cis_rule_18_10_43_6_1_1
   tags:
     - level1-domaincontroller
@@ -5164,7 +5146,7 @@
   block:
     - name: "18.10.57.3.10.1 | PATCH | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Set Variable."
       when:
-        - win25cis_idle_rdp_session_disconnect_time > 0 
+        - win25cis_idle_rdp_session_disconnect_time > 0
         - win25cis_idle_rdp_session_disconnect_time <= 900000
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Terminal Services
@@ -5307,7 +5289,7 @@
     data: 0
     type: dword
 
-- name: "18.10.59.3 | PATCH | Ensure Allow indexing of encrypted files is set to Disabled"
+- name: "18.10.59.3 | PATCH | Ensure 'Allow indexing of encrypted files' is set to Disabled"
   when: win25cis_rule_18_10_59_3
   tags:
     - level1-domaincontroller
@@ -5786,7 +5768,7 @@
     data: 0
     type: dword
 
-- name: "18.10.92.2.1 | PATCH | Ensure Prevent users from modifying settings is set to Enabled"
+- name: "18.10.92.2.1 | PATCH | Ensure 'Prevent users from modifying settings' is set to Enabled"
   when: win25cis_rule_18_10_92_2_1
   tags:
     - level1-domaincontroller
@@ -5825,7 +5807,7 @@
     data: 0
     type: dword
 
-- name: "18.10.93.2.1 | PATCH | Ensure Configure Automatic Updates is set to Enabled"
+- name: "18.10.93.2.1 | PATCH | Ensure 'Configure Automatic Updates' is set to Enabled"
   when: win25cis_rule_18_10_93_2_1
   tags:
     - level1-domaincontroller

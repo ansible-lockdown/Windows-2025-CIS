@@ -409,6 +409,7 @@ win25cis_rule_18_6_7_3: true
 win25cis_rule_18_6_7_4: true
 win25cis_rule_18_6_7_5: true
 win25cis_rule_18_6_7_6: true
+win25cis_rule_18_6_7_7: true
 win25cis_rule_18_6_8_1: true
 win25cis_rule_18_6_8_2: true
 win25cis_rule_18_6_8_3: true
@@ -416,7 +417,6 @@ win25cis_rule_18_6_8_4: true
 win25cis_rule_18_6_8_5: true
 win25cis_rule_18_6_8_6: true
 win25cis_rule_18_6_8_7: true
-win25cis_rule_18_6_8_8: true
 win25cis_rule_18_6_9_1: true
 win25cis_rule_18_6_9_2: true
 win25cis_rule_18_6_10_2: true
@@ -534,7 +534,6 @@ win25cis_rule_18_10_16_4: true
 win25cis_rule_18_10_16_5: true
 win25cis_rule_18_10_16_6: true
 win25cis_rule_18_10_16_7: true
-win25cis_rule_18_10_16_8: true
 win25cis_rule_18_10_18_1: true
 win25cis_rule_18_10_18_2: true
 win25cis_rule_18_10_18_3: true
@@ -873,7 +872,7 @@ win25cis_ldap_client_integrity: 1
 
 # 2.3.11.14
 # win25cis_restrict_sending_ntlm_traffic is the policy setting allows the auditing of outgoing NTLM traffic.
-# Events for this setting are recorded in the operational event log (e.g. Applications and Services
+# Events for this policy are recorded in the operational event log (e.g. Applications and Services
 # Log\Microsoft\Windows\NTLM). Configuring this setting to Deny All also conforms to the benchmark.
 # The recommended state for this setting is: Audit All.
 # Note: Possible Valid Settings
@@ -963,7 +962,7 @@ win25cis_log_threshold_audit_event: 90
 # Default: 2
 win25cis_enable_netbios_policy: 2
 
-# 18.6.7.6
+# 18.6.7.7
 # win25cis_invalid_authentication_delay_time is the policy settings configures the SMB server invalid authentication delay value in
 # milliseconds.
 # The recommended state for this setting is: Enabled: 2000 or more.
@@ -980,7 +979,7 @@ win25cis_invalid_authentication_delay_time: 2000
 win25cis_force_kerberos_for_rpc: 0
 
 # 18.9.5.2
-# win25cis_virtualization_based_security_level is the the policy setting specifies whether Virtualization Based Security (VBS) is enabled.
+# win25cis_virtualization_based_security_level is the policy setting specifies whether Virtualization Based Security (VBS) is enabled.
 # VBS uses the Windows Hypervisor to provide support for security services.
 # The recommended state for this setting is: Secure Boot or Secure Boot and DMA Protection.
 # 1 - Secure Boot

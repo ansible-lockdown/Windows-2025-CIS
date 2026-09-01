@@ -1,7 +1,8 @@
 ---
 
-parseable: true
 quiet: true
+exclude_paths:
+  - templates/windows_templates/PolicyDefinitions.zip
 skip_list:
   - 'package-latest'
   - 'risky-shell-pipe'

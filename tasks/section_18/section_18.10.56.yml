@@ -9,8 +9,6 @@
     - patch
     - pushtoinstall
     - NIST800-171_3.4.8
-    - NIST800-53_CM-7_5
-    - NIST800-53_CM-10
     - NIST800-53R5_CM-7_5
     - NIST800-53R5_CM-10
   ansible.windows.win_regedit:

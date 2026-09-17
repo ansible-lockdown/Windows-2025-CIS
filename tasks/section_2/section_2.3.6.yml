@@ -15,11 +15,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -46,11 +41,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -76,11 +66,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -104,7 +89,6 @@
     - patch
     - logon
     - NIST800-171_3.1.1
-    - NIST800-53_AC-2_1
     - NIST800-53R5_AC-2_1
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
@@ -124,7 +108,6 @@
     - patch
     - account
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "2.3.6.5 | PATCH | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0. | Apply Settings To Registry."
@@ -169,11 +152,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1

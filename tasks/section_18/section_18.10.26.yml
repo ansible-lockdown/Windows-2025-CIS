@@ -8,7 +8,6 @@
     - rule_18.10.26.1.1
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application
@@ -24,7 +23,6 @@
     - rule_18.10.26.1.2
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   block:
     - name: "18.10.26.1.2 | PATCH | Ensure Application Specify the maximum log file size KB is set to Enabled 32768 or greater | Set File Size."
@@ -57,7 +55,6 @@
     - rule_18.10.26.2.1
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Eventlog\Security
@@ -73,7 +70,6 @@
     - rule_18.10.26.2.2
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   block:
     - name: "18.10.26.2.2 | PATCH | Ensure Security Specify the maximum log file size KB is set to Enabled 196608 or greater | Set Variable."
@@ -106,7 +102,6 @@
     - rule_18.10.26.3.1
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Eventlog\Setup
@@ -122,7 +117,6 @@
     - rule_18.10.26.3.2
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   block:
     - name: "18.10.26.3.2 | PATCH | Ensure Setup Specify the maximum log file size KB is set to Enabled 32768 or greater | Set Variable."
@@ -155,7 +149,6 @@
     - rule_18.10.26.4.1
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Eventlog\System
@@ -171,7 +164,6 @@
     - rule_18.10.26.4.2
     - patch
     - eventlog
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   block:
     - name: "18.10.26.4.2 | PATCH | Ensure System Specify the maximum log file size KB is set to Enabled 32768 or greater | Set Variable."

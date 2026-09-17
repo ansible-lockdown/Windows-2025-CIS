@@ -9,7 +9,6 @@
     - patch
     - accounts
     - NIST800-171_3.3.1
-    - NIST800-53_AC-2_1
     - NIST800-53R5_AC-2_1
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System

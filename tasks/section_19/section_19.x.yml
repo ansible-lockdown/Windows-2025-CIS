@@ -27,8 +27,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -48,7 +46,6 @@
     - patch
     - attachments
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
@@ -69,7 +66,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments
@@ -88,7 +84,6 @@
     - patch
     - cloudcontent
     - NIST800-171_3.1.10
-    - NIST800-53_AC-11
     - NIST800-53R5_AC-11
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Windows\CloudContent
@@ -108,7 +103,6 @@
     - cloudcontent
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Windows\CloudContent
@@ -128,7 +122,6 @@
     - cloudcontent
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Windows\CloudContent
@@ -149,8 +142,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -172,8 +163,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -194,7 +183,6 @@
     - profiles
     - sharing
     - NIST800-171_3.1.1
-    - NIST800-53_AC-3
     - NIST800-53R5_AC-3
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
@@ -213,7 +201,6 @@
     - patch
     - permissions
     - NIST800-171_3.1.1
-    - NIST800-53_AC-2_9
     - NIST800-53R5_AC-2_9
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Windows\Installer
@@ -232,7 +219,6 @@
     - patch
     - codec
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6
     - NIST800-53R5_CM-6
   ansible.windows.win_regedit:
     path: HKU:\{{ item }}\SOFTWARE\Policies\Microsoft\Windowsmediaplayer

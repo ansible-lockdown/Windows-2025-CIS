@@ -10,7 +10,6 @@
     - patch
     - scheduledtasks
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_8
     - NIST800-53R5_AC-6_8
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
@@ -29,7 +28,6 @@
     - patch
     - logon
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
@@ -49,11 +47,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -77,11 +70,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -122,11 +110,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -153,16 +136,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2

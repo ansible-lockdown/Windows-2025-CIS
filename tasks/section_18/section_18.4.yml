@@ -10,7 +10,6 @@
     - patch
     - uac
     - NIST800-171_3.1.1
-    - NIST800-53_AC-2_9
     - NIST800-53R5_AC-2_9
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -29,8 +28,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -50,8 +47,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -71,7 +66,6 @@
     - patch
     - wintrust
     - NIST800-171_3.4.8
-    - NIST800-53_SC-8
     - NIST800-53R5_SC-8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Cryptography\Wintrust\Config
@@ -87,7 +81,6 @@
     - rule_18.4.5
     - patch
     - sehop
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
@@ -109,16 +102,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -162,9 +145,6 @@
     - wdigest
     - NIST800-171_3.5.2
     - NIST800-171_3.13.6
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-28
-    - NIST800-53_SC-28_1
     - NIST800-53R5_IA-5_1
     - NIST800-53R5_SC-28
     - NIST800-53R5_SC-28_1

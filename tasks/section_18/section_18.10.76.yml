@@ -8,7 +8,6 @@
     - rule_18.10.76.2.1
     - patch
     - defender
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   block:
     - name: "18.10.76.2.1 | PATCH | Ensure Configure Windows Defender SmartScreen is set to Enabled Warn and prevent bypass | EnableSmartScreen"

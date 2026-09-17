@@ -11,7 +11,6 @@
     - diagnostics
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   block:
     - name: "18.10.16.1 | PATCH | Ensure Allow Diagnostic Data is set to Enabled: Diagnostic data off (not recommended) or Enabled: Send required diagnostic data | Set Variable."
@@ -50,7 +49,6 @@
     - datacollection
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection
@@ -68,7 +66,6 @@
     - onesettings
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection
@@ -86,7 +83,6 @@
     - datacollection
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Datacollection
@@ -105,10 +101,6 @@
     - NIST800-171_3.3.1
     - NIST800-171_3.3.2
     - NIST800-171_3.3.6
-    - NIST800-53_AU-3
-    - NIST800-53_AU-3_1
-    - NIST800-53_AU-7
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-3
     - NIST800-53R5_AU-3_1
     - NIST800-53R5_AU-7
@@ -130,8 +122,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -150,7 +140,6 @@
     - datacollection
     - NIST800-171_3.3.1
     - NIST800-171_3.3.2
-    - NIST800-53_AU-2
     - NIST800-53R5_AU-2
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection

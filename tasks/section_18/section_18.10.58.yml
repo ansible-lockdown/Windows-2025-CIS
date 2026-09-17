@@ -10,9 +10,6 @@
     - enclosure
     - NIST800-171_3.4.9
     - NIST800-171_3.13.13
-    - NIST800-53_CM-10
-    - NIST800-53_CM-11
-    - NIST800-53_SC-18
     - NIST800-53R5_CM-10
     - NIST800-53R5_CM-11
     - NIST800-53R5_SC-18
@@ -34,7 +31,6 @@
     - internet_explorer
     - authentication
     - NIST800-171_3.1.13
-    - NIST800-53_AC-17
     - NIST800-53R5_AC-17
   ansible.windows.win_regedit:
     path: HKLM:\Software\Policies\Microsoft\Internet Explorer\Feeds

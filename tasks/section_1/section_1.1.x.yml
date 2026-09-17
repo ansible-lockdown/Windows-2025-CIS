@@ -11,7 +11,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "1.1.1 | PATCH | Ensure Enforce password history is set to 24 or more passwords. | Set Variable."
@@ -50,7 +49,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "1.1.2 | PATCH | Ensure Maximum password age is set to 365 or fewer days but not 0. | Set Variable."
@@ -95,7 +93,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "1.1.3 | PATCH | Ensure Minimum password age is set to 1 or more days. | Set Variable."
@@ -138,7 +135,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\SAM
@@ -157,7 +153,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "1.1.4 | PATCH | Ensure Minimum password length is set to 14 or more characters. | Set Variable."
@@ -192,7 +187,6 @@
     - patch
     - password
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   community.windows.win_security_policy:
     section: System Access
@@ -211,9 +205,6 @@
     - password
     - NIST800-171_3.5.2
     - NIST800-171_3.13.16
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-28
-    - NIST800-53_SC-28_1
     - NIST800-53R5_IA-5_1
     - NIST800-53R5_SC-28
     - NIST800-53R5_SC-28_1

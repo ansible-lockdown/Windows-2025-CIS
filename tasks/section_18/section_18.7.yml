@@ -14,16 +14,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -48,7 +38,6 @@
     - rule_18.7.2
     - patch
     - printers
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers
@@ -65,7 +54,6 @@
     - patch
     - printers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
@@ -82,7 +70,6 @@
     - patch
     - printers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
@@ -99,7 +86,6 @@
     - patch
     - printers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
@@ -115,7 +101,6 @@
     - rule_18.7.6
     - patch
     - printers
-    - NIST800-53_IA-3_1
     - NIST800-53R5_IA-3_1
   block:
     - name: "18.7.6 | PATCH | Ensure 'Configure RPC listener settings: Authentication protocol to use for incoming RPC connections:' is set to 'Enabled: Negotiate' or higher. | Set Variable."
@@ -153,7 +138,6 @@
     - patch
     - printers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
@@ -172,7 +156,6 @@
     - drivers
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\Print
@@ -189,8 +172,6 @@
     - patch
     - printers
     - NIST800-171_3.4.6
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -210,7 +191,6 @@
     - drivers
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint
@@ -227,7 +207,6 @@
     - patch
     - printers
     - drivers
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers
@@ -244,7 +223,6 @@
     - patch
     - printers
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_8
     - NIST800-53R5_AC-6_8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint
@@ -261,7 +239,6 @@
     - patch
     - printers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers\PointAndPrint

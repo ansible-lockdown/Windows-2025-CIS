@@ -11,9 +11,6 @@
     - logon
     - NIST800-171_3.5.2
     - NIST800-171_3.13.6
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-28
-    - NIST800-53_SC-28_1
     - NIST800-53R5_IA-5_1
     - NIST800-53R5_SC-28
     - NIST800-53R5_SC-28_1
@@ -33,7 +30,6 @@
     - mss
     - iprouting
     - NIST800-171_3.5.2
-    - NIST800-53_CM-6
     - NIST800-53R5_CM-6
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters
@@ -51,7 +47,6 @@
     - mss
     - iprouting
     - NIST800-171_3.13.1
-    - NIST800-53_SC-7_12
     - NIST800-53R5_SC-7_12
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
@@ -74,16 +69,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -115,16 +100,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -151,7 +126,6 @@
     - mss
     - noname
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6
     - NIST800-53R5_CM-6
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Netbt\Parameters
@@ -170,8 +144,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -188,7 +160,6 @@
     - rule_18.5.8
     - patch
     - mss
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager
@@ -207,10 +178,6 @@
     - NIST800-171_3.1.1
     - NIST800-171_3.1.10
     - NIST800-171_3.1.11
-    - NIST800-53_AC-2_5
-    - NIST800-53_AC-11
-    - NIST800-53_AC-11_1
-    - NIST800-53_AC-12
     - NIST800-53R5_AC-2_5
     - NIST800-53R5_AC-11
     - NIST800-53R5_AC-11_1
@@ -250,14 +217,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_AC-18
-    - NIST800-53_AC-18_1
-    - NIST800-53_AC-18_3
-    - NIST800-53_CM-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
     - NIST800-53R5_AC-18
     - NIST800-53R5_AC-18_1
     - NIST800-53R5_AC-18_3
@@ -286,14 +245,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_AC-18
-    - NIST800-53_AC-18_1
-    - NIST800-53_AC-18_3
-    - NIST800-53_CM-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
     - NIST800-53R5_AC-18
     - NIST800-53R5_AC-18_1
     - NIST800-53R5_AC-18_3
@@ -316,7 +267,6 @@
     - rule_18.5.12
     - patch
     - mss
-    - NIST800-53_AU-4
     - NIST800-53R5_AU-4
   block:
     - name: "18.5.12 | PATCH | Ensure MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning is set to Enabled: 90% or less | Set WarningLevel threshold for security event log if 90 or less"

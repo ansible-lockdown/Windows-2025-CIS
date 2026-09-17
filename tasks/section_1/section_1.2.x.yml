@@ -16,8 +16,6 @@
     - account
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
@@ -60,8 +58,6 @@
     - account
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
@@ -134,8 +130,6 @@
     - account
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
@@ -177,8 +171,6 @@
     - password
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   community.windows.win_security_policy:

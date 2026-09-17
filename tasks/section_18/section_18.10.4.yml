@@ -9,7 +9,6 @@
     - patch
     - data
     - NIST800-171_3.3.1
-    - NIST800-53_AC-3
     - NIST800-53R5_AC-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Appmodel\Statemanager
@@ -27,8 +26,6 @@
     - appx
     - storeapps
     - NIST800-171_3.4.6
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:

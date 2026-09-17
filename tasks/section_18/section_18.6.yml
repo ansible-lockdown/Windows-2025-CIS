@@ -12,11 +12,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.3.18
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -40,8 +35,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   block:
@@ -83,8 +76,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -105,8 +96,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -125,7 +114,6 @@
     - dns
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-7_b
     - NIST800-53R5_CM-7_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -142,7 +130,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
@@ -159,7 +146,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
@@ -176,7 +162,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
@@ -193,7 +178,6 @@
     - patch
     - smb
     - NIST800-171_3.1.8
-    - NIST800-53_AC-7
     - NIST800-53R5_AC-7
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanServer
@@ -210,7 +194,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Bowser
@@ -229,13 +212,6 @@
     - NIST800-171_3.13.8
     - NIST800-171_3.13.2
     - NIST800-171_3.4.1
-    - NIST800-53_SC-7_10
-    - NIST800-53_SC-12
-    - NIST800-53_SC-13
-    - NIST800-53_SC-28
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_SI-7_1
     - NIST800-53R5_SC-7_10
     - NIST800-53R5_SC-12
     - NIST800-53R5_SC-13
@@ -258,7 +234,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AC-7
     - NIST800-53R5_AC-7
   block:
     - name: "18.6.7.7 | PATCH | Ensure 'Set authentication rate limiter delay (milliseconds)' is set to Enabled: 2000 or more | Set registry value"
@@ -292,7 +267,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation
@@ -309,7 +283,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation
@@ -326,7 +299,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_AU-12
     - NIST800-53R5_AU-12
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation
@@ -344,7 +316,6 @@
     - fonts
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation
@@ -361,7 +332,6 @@
     - patch
     - smb
     - NIST800-171_3.1.13
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider
@@ -380,13 +350,6 @@
     - NIST800-171_3.13.8
     - NIST800-171_3.13.2
     - NIST800-171_3.4.1
-    - NIST800-53_SC-7_10
-    - NIST800-53_SC-12
-    - NIST800-53_SC-13
-    - NIST800-53_SC-28
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_SI-7_1
     - NIST800-53R5_SC-7_10
     - NIST800-53R5_SC-12
     - NIST800-53R5_SC-13
@@ -410,7 +373,6 @@
     - fonts
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation
@@ -428,7 +390,6 @@
     - mapper
     - drivers
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6
     - NIST800-53R5_CM-6
   block:
     - name: "18.6.9.1 | PATCH | Ensure Turn on Mapper IO LLTDIO driver is set to Disabled | AllowLLTDIOOndomain"
@@ -469,7 +430,6 @@
     - rspndr
     - driver
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6
     - NIST800-53R5_CM-6
   block:
     - name: "18.6.9.2 | PATCH | Ensure Turn on Responder RSPNDR driver is set to Disabled | AllowRspndrOnDomain"
@@ -511,8 +471,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -535,14 +493,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_AC-18
-    - NIST800-53_AC-18_1
-    - NIST800-53_AC-18_3
-    - NIST800-53_CM-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
     - NIST800-53R5_AC-18
     - NIST800-53R5_AC-18_1
     - NIST800-53R5_AC-18_3
@@ -568,8 +518,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -587,7 +535,6 @@
     - patch
     - networkconnections
     - NIST800-171_3.1.7
-    - NIST800-53_AC-6_10
     - NIST800-53R5_AC-6_10
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Network Connections
@@ -604,7 +551,6 @@
     - patch
     - paths
     - unc
-    - NIST800-53_IA-3_1
     - NIST800-53R5_IA-3_1
   block:
     - name: "18.6.14.1 | PATCH | Ensure 'Hardened UNC Paths' is set to 'Enabled, with Require Mutual Authentication, Require Integrity, and Require Privacy set for all NETLOGON and SYSVOL shares"
@@ -632,8 +578,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -653,8 +597,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   block:
@@ -704,8 +646,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -727,16 +667,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -763,7 +693,6 @@
     - patch
     - NIST800-171_3.13.1
     - NIST800-171_3.13.5
-    - NIST800-53_SC-7
     - NIST800-53R5_SC-7
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Wcmsvc\Grouppolicy

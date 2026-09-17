@@ -12,8 +12,6 @@
     - NIST800-171_3.14.1
     - NIST800-171_3.14.5
     - NIST800-171_3.14.6
-    - NIST800-53_SI-3
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-3
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
@@ -33,8 +31,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -54,8 +50,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -72,7 +66,6 @@
     - rule_18.10.43.6.1.1
     - patch
     - defender
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR
@@ -88,7 +81,6 @@
     - rule_18.10.43.6.1.2
     - patch
     - defender
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules
@@ -118,9 +110,6 @@
     - patch
     - defender
     - NIST800-171_3.13.1
-    - NIST800-53_SC-7_3
-    - NIST800-53_SC-7_4
-    - NIST800-53_SI-16
     - NIST800-53R5_SC-7_3
     - NIST800-53R5_SC-7_4
     - NIST800-53R5_SI-16
@@ -141,7 +130,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\MpEngine
@@ -162,8 +150,6 @@
     - NIST800-171_3.13.8
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-3
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-3
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
@@ -184,8 +170,6 @@
     - realtime
     - NIST800-171_3.14.1
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-3
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
@@ -206,7 +190,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
@@ -226,7 +209,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
@@ -245,7 +227,6 @@
     - real_time_protection
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
@@ -264,7 +245,6 @@
     - real_time_protection
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
@@ -284,8 +264,6 @@
     - NIST800-171_3.14.1
     - NIST800-171_3.14.5
     - NIST800-171_3.14.6
-    - NIST800-53_AC-7
-    - NIST800-53_SI-4
     - NIST800-53R5_AC-7
     - NIST800-53R5_SI-4
   block:
@@ -327,8 +305,6 @@
     - NIST800-171_3.14.1
     - NIST800-171_3.14.5
     - NIST800-171_3.14.6
-    - NIST800-53_AC-7
-    - NIST800-53_SI-4
     - NIST800-53R5_AC-7
     - NIST800-53R5_SI-4
   block:
@@ -373,8 +349,6 @@
     - NIST800-171_3.14.1
     - NIST800-171_3.14.5
     - NIST800-171_3.14.6
-    - NIST800-53_AC-7
-    - NIST800-53_SI-4
     - NIST800-53R5_AC-7
     - NIST800-53R5_SI-4
   block:
@@ -415,7 +389,6 @@
     - patch
     - defender
     - NIST800-171_3.12.3
-    - NIST800-53_CA-7
     - NIST800-53R5_CA-7
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Reporting
@@ -435,7 +408,6 @@
     - scan
     - NIST800-171_3.14.4
     - NIST800-171_3.14.6
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
@@ -455,8 +427,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_MP-7
-    - NIST800-53_SI-3
     - NIST800-53R5_MP-7
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
@@ -477,8 +447,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_MP-7
-    - NIST800-53_SI-3
     - NIST800-53R5_MP-7
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
@@ -500,7 +468,6 @@
     - remediation
     - NIST800-171_3.14.4
     - NIST800-171_3.14.6
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
@@ -520,7 +487,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Scan
@@ -539,7 +505,6 @@
     - NIST800-171_3.14.2
     - NIST800-171_3.14.4
     - NIST800-171_3.14.5
-    - NIST800-53_SI-3
     - NIST800-53R5_SI-3
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender
@@ -559,7 +524,6 @@
     - visibility
     - NIST800-171_3.4.5
     - NIST800-171_3.4.6
-    - NIST800-53_AC-6
     - NIST800-53R5_AC-6
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender

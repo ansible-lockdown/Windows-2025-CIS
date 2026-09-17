@@ -11,8 +11,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -32,8 +30,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -53,8 +49,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -74,8 +68,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -95,8 +87,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -116,8 +106,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -137,8 +125,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -157,7 +143,6 @@
     - terminalservices
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-7_b
     - NIST800-53R5_CM-7_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Terminal Services
@@ -176,8 +161,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -196,7 +179,6 @@
     - remote-desktop
     - clipboard
     - NIST800-171_3.1.13
-    - NIST800-53_AC-20
     - NIST800-53R5_AC-20
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
@@ -215,8 +197,6 @@
     - NIST800-171_3.1.1
     - NIST800-171_3.1.2
     - NIST800-171_3.5.1
-    - NIST800-53_AC-17_6
-    - NIST800-53_IA-2
     - NIST800-53R5_AC-17_6
     - NIST800-53R5_IA-2
   ansible.windows.win_regedit:
@@ -234,7 +214,6 @@
     - patch
     - terminalservices
     - NIST800-171_3.3.1
-    - NIST800-53_SC-7_8
     - NIST800-53R5_SC-7_8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Terminal Services
@@ -253,11 +232,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -280,11 +254,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -307,11 +276,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -332,7 +296,6 @@
     - patch
     - terminalservices
     - NIST800-171_3.1.10
-    - NIST800-53_AC-11
     - NIST800-53R5_AC-11
   block:
     - name: "18.10.57.3.10.1 | PATCH | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Set Variable."
@@ -372,7 +335,6 @@
     - patch
     - terminalservices
     - NIST800-171_3.1.10
-    - NIST800-53_AC-11
     - NIST800-53R5_AC-11
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Terminal Services
@@ -388,8 +350,6 @@
     - rule_18.10.57.3.11.1
     - patch
     - terminalservices
-    - NIST800-53_AU-11
-    - NIST800-53_SI-12
     - NIST800-53R5_AU-11
     - NIST800-53R5_SI-12
   ansible.windows.win_regedit:
@@ -406,8 +366,6 @@
     - rule_18.10.57.3.11.2
     - patch
     - terminalservices
-    - NIST800-53_AU-11
-    - NIST800-53_SI-12
     - NIST800-53R5_AU-11
     - NIST800-53R5_SI-12
   ansible.windows.win_regedit:

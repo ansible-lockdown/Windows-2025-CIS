@@ -326,8 +326,7 @@ There are many tags available for added control precision. Each control has its 
 
   2. Standard Types:
 
-    - "800-53" references are formatted as NIST800-53.
-    - "800-53r5" references are formatted as NIST800-53R5 (with 'R' capitalized).
+    - "800-53r5" references are formatted as NIST800-53R5 (with 'R' capitalized). Only Rev 5 is tagged.
     - "800-171" references are formatted as NIST800-171.
 
   3. Details:
@@ -347,20 +346,18 @@ Below is an example of the tag section from a control within this role. Using th
         - patch
         - smb
         - NIST800-171_3.4.2
-        - NIST800-53_CM-6b.
-        - NIST800-53R5_CM-6b.
-        - NIST800-53_AC-2
-        - NIST800-53R5_AC-2
-        - NIST800-53R5_IA-5_1_d
         - NIST800-171_3.5.2
-        - NIST800-53_AC-17_2
+        - NIST800-53R5_CM-6_b
+        - NIST800-53R5_AC-2
+        - NIST800-53R5_AC-17_2
+        - NIST800-53R5_IA-5_1_d
 ```
 
 ### Conversion Examples in Use:
   - 800-53r5 IA-5(1)(d) NIST800-53R5_IA-5_1_d
+  - 800-53r5 AC-17(2) NIST800-53R5_AC-17_2
+  - 800-53r5 CM-6b. NIST800-53R5_CM-6_b
   - 800-171 3.5.2 NIST800-171_3.5.2
-  - 800-53 AC-17(2) NIST800-53_AC-17_2
-  - 800-53 CM-6b. NIST800-53_CM-6b.
 
 By maintaining this consistent tagging structure, it becomes easier to filter and manage tasks based on specific controls and compliance requirements.
 

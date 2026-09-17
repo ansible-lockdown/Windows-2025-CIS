@@ -9,7 +9,6 @@
     - patch
     - NIST800-171_3.3.1
     - NIST800-171_3.3.2
-    - NIST800-53_AU-2
     - NIST800-53R5_AU-2
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit
@@ -25,7 +24,6 @@
     - rule_18.9.4.1
     - patch
     - encryption_oracle
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters
@@ -42,7 +40,6 @@
     - patch
     - credentialsdelegation
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5
     - NIST800-53R5_IA-5
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
@@ -58,7 +55,6 @@
     - rule_18.9.5.1
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -74,7 +70,6 @@
     - rule_18.9.5.2
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   block:
     - name: "18.9.5.2 | PATCH | NG Ensure 'Turn On Virtualization Based Security: Select Platform Security Level' is set to 'Secure Boot' or higher. | Set Variable."
@@ -111,7 +106,6 @@
     - rule_18.9.5.3
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -127,7 +121,6 @@
     - rule_18.9.5.4
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -144,7 +137,6 @@
     - rule_18.9.5.5
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -161,7 +153,6 @@
     - rule_18.9.5.6
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -177,7 +168,6 @@
     - rule_18.9.5.7
     - patch
     - vbs
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
@@ -194,9 +184,6 @@
     - patch
     - metadata
     - NIST800-171_3.4.8
-    - NIST800-53_CM-7_5
-    - NIST800-53_CM-10
-    - NIST800-53_SI-16
     - NIST800-53R5_CM-7_5
     - NIST800-53R5_CM-10
     - NIST800-53R5_SI-16
@@ -214,7 +201,6 @@
     - rule_18.9.13.1
     - patch
     - drivers
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Policies\Earlylaunch
@@ -235,16 +221,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -274,16 +250,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -313,16 +279,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -352,16 +308,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -388,8 +334,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -411,16 +355,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -447,8 +381,6 @@
     - drivers
     - printers
     - NIST800-171_3.4.8
-    - NIST800-53_CM-7_5
-    - NIST800-53_CM-10
     - NIST800-53R5_CM-7_5
     - NIST800-53R5_CM-10
   ansible.windows.win_regedit:
@@ -467,7 +399,6 @@
     - handwriting
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Tabletpc
@@ -486,8 +417,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -508,8 +437,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -530,8 +457,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -551,8 +476,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -573,8 +496,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -594,8 +515,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -615,8 +534,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -636,8 +553,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -657,8 +572,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -678,8 +591,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -699,8 +610,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   block:
@@ -726,7 +635,6 @@
     - rule_18.9.23.1
     - patch
     - certificates
-    - NIST800-53_IA-3_1
     - NIST800-53R5_IA-3_1
   block:
     - name: "18.9.23.1 | PATCH | Support device authentication using certificate | DevicePKInitBehavior"
@@ -752,7 +660,6 @@
     - patch
     - dma
     - NIST800-171_3.4.1
-    - NIST800-53_CM-8
     - NIST800-53R5_CM-8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Kernel DMA Protection
@@ -770,7 +677,6 @@
     - patch
     - laps
     - NIST800-171_3.8.9
-    - NIST800-53_CP-9
     - NIST800-53R5_CP-9
   block:
     - name: "18.9.25.1 | PATCH | Ensure Configure password backup directory is set to Enabled: Active Directory or Enabled: Azure Active Directory | Set Variable."
@@ -809,7 +715,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1_d
     - NIST800-53R5_IA-5_1_d
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
@@ -829,11 +734,6 @@
     - NIST800-171_3.1.13
     - NIST800-171_3.5.2
     - NIST800-171_3.13.8
-    - NIST800-53_AC-17_2
-    - NIST800-53_IA-5
-    - NIST800-53_IA-5_1
-    - NIST800-53_SC-8
-    - NIST800-53_SC-8_1
     - NIST800-53R5_AC-17_2
     - NIST800-53R5_IA-5
     - NIST800-53R5_IA-5_1
@@ -855,7 +755,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
@@ -873,7 +772,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "18.9.25.5 | PATCH | Ensure Password Settings: Password Length is set to Enabled: 15 or more | Set Variable."
@@ -908,7 +806,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "18.9.25.6 | PATCH | Ensure Password Settings: Password Age (Days) is set to Enabled: 30 or fewer | Set Variable."
@@ -943,7 +840,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "18.9.25.7 | PATCH | Ensure Post-authentication actions: Grace period (hours) is set to Enabled: 8 or fewer hours, but not 0 | Set Variable."
@@ -984,7 +880,6 @@
     - patch
     - laps
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "18.9.25.8 | PATCH | Ensure Post-authentication actions: Actions is set to Enabled: Reset the password and logoff the managed account or higher | Set Variable."
@@ -1022,7 +917,6 @@
     - rule_18.9.26.1
     - patch
     - lsass
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -1038,7 +932,6 @@
     - rule_18.9.26.2
     - patch
     - lsa
-    - NIST800-53_SI-16
     - NIST800-53R5_SI-16
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
@@ -1054,7 +947,6 @@
     - rule_18.9.27.1
     - patch
     - NIST800-171_3.4.2
-    - NIST800-53_CM-6_b
     - NIST800-53R5_CM-6_b
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Control Panel\International
@@ -1076,16 +968,6 @@
     - NIST800-171_3.4.7
     - NIST800-171_3.13.1
     - NIST800-171_3.13.2
-    - NIST800-53_CM-1
-    - NIST800-53_CM-2
-    - NIST800-53_AC-2
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
-    - NIST800-53_CM-7_1
-    - NIST800-53_CM-9
-    - NIST800-53_SA-3
-    - NIST800-53_SA-8
-    - NIST800-53_SA-10
     - NIST800-53R5_CM-1
     - NIST800-53R5_CM-2
     - NIST800-53R5_AC-2
@@ -1110,7 +992,6 @@
     - rule_18.9.28.2
     - patch
     - NIST800-171_3.1.7
-    - NIST800-53_AC-6_10
     - NIST800-53R5_AC-6_10
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -1127,7 +1008,6 @@
     - patch
     - enumerate
     - NIST800-171_3.1.7
-    - NIST800-53_AC-6_10
     - NIST800-53R5_AC-6_10
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -1145,7 +1025,6 @@
     - patch
     - enumerate
     - NIST800-171_3.1.7
-    - NIST800-53_AC-6_10
     - NIST800-53R5_AC-6_10
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -1164,8 +1043,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1185,8 +1062,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1206,8 +1081,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1225,8 +1098,6 @@
     - patch
     - netlogon
     - NIST800-171_3.1.13
-    - NIST800-53_AC-4
-    - NIST800-53_CM-7
     - NIST800-53R5_AC-4
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1246,8 +1117,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1265,7 +1134,6 @@
     - patch
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\System
@@ -1283,7 +1151,6 @@
     - power
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9
@@ -1301,7 +1168,6 @@
     - power
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\f15576e8-98b7-4186-b944-eafa664402d9
@@ -1319,7 +1185,6 @@
     - power
     - logon
     - NIST800-171_3.1.10
-    - NIST800-53_AC-11
     - NIST800-53R5_AC-11
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51
@@ -1336,7 +1201,6 @@
     - patch
     - logon
     - NIST800-171_3.1.10
-    - NIST800-53_AC-11
     - NIST800-53R5_AC-11
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51
@@ -1355,8 +1219,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1376,8 +1238,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1397,7 +1257,6 @@
     - rpc
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Rpc
@@ -1416,7 +1275,6 @@
     - rpc
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows Nt\Rpc
@@ -1433,8 +1291,6 @@
     - rule_18.9.39.1
     - patch
     - sam
-    - NIST800-53_SC-39
-    - NIST800-53_SI-16
     - NIST800-53R5_SC-39
     - NIST800-53R5_SI-16
   block:
@@ -1475,8 +1331,6 @@
     - sam
     - NIST800-171_3.13.8
     - NIST800-171_3.4.1
-    - NIST800-53_AC-17
-    - NIST800-53_SC-12
     - NIST800-53R5_AC-17
     - NIST800-53R5_SC-12
   ansible.windows.win_regedit:
@@ -1496,8 +1350,6 @@
     - sam
     - NIST800-171_3.13.8
     - NIST800-171_3.4.1
-    - NIST800-53_AC-17
-    - NIST800-53_SC-12
     - NIST800-53R5_AC-17
     - NIST800-53R5_SC-12
   ansible.windows.win_regedit:
@@ -1517,8 +1369,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1538,8 +1388,6 @@
     - NIST800-171_3.4.2
     - NIST800-171_3.4.6
     - NIST800-171_3.4.7
-    - NIST800-53_CM-6
-    - NIST800-53_CM-7
     - NIST800-53R5_CM-6
     - NIST800-53R5_CM-7
   ansible.windows.win_regedit:
@@ -1558,7 +1406,6 @@
     - advertising
     - NIST800-171_3.14.6
     - NIST800-171_3.14.7
-    - NIST800-53_SI-4
     - NIST800-53R5_SI-4
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Advertisinginfo
@@ -1576,8 +1423,6 @@
     - ntp
     - NIST800-171_3.3.6
     - NIST800-171_3.3.7
-    - NIST800-53_AU-7
-    - NIST800-53_AU-8
     - NIST800-53R5_AU-7
     - NIST800-53R5_AU-8
   ansible.windows.win_regedit:
@@ -1597,8 +1442,6 @@
     - ntp
     - NIST800-171_3.3.6
     - NIST800-171_3.3.7
-    - NIST800-53_AU-7
-    - NIST800-53_AU-8
     - NIST800-53R5_AU-7
     - NIST800-53R5_AU-8
   ansible.windows.win_regedit:

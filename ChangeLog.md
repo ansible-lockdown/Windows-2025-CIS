@@ -42,6 +42,8 @@
   - README: why a control's CIS profile tags and its when can disagree, using 1.2.3
   - README: migration path for the GPO variables removed from this role
   - moved reading user hive fromPerlim to section19/main.yml to minimise potential unload hive issue
+  - NIST800-53 task tags removed, NIST800-53R5 and NIST800-171 kept
+  - README tagging example shows NIST800-53R5 only
 
 ## September 2026 Updates - GPO creation removed
 

@@ -9,7 +9,6 @@
     - patch
     - uac
     - NIST800-171_3.1.1
-    - NIST800-53_AC-2_9
     - NIST800-53R5_AC-2_9
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -26,7 +25,6 @@
     - patch
     - uac
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_1
     - NIST800-53R5_AC-6_1
   block:
     - name: "2.3.17.2 | PATCH | Ensure User Account Control Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop or higher | Apply Setting"
@@ -66,7 +64,6 @@
     - patch
     - uac
     - NIST800-171_3.1.7
-    - NIST800-53_AC-6_10
     - NIST800-53R5_AC-6_10
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -83,7 +80,6 @@
     - patch
     - uac
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_8
     - NIST800-53R5_AC-6_8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -100,7 +96,6 @@
     - patch
     - uac
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_8
     - NIST800-53R5_AC-6_8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -117,7 +112,6 @@
     - patch
     - uac
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_1
     - NIST800-53R5_AC-6_1
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -134,7 +128,6 @@
     - patch
     - uac
     - NIST800-171_3.1.5
-    - NIST800-53_AC-6_1
     - NIST800-53R5_AC-6_1
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -150,7 +143,6 @@
     - rule_2.3.17.8
     - patch
     - uac
-    - NIST800-53_SC-29_1
     - NIST800-53R5_SC-29_1
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System

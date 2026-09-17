@@ -10,8 +10,6 @@
     - logon
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   ansible.windows.win_regedit:
@@ -30,8 +28,6 @@
     - logon
     - NIST800-171_3.1.8
     - NIST800-171_3.1.18
-    - NIST800-53_AC-7
-    - NIST800-53_AC-19
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   ansible.windows.win_regedit:
@@ -51,10 +47,6 @@
     - NIST800-171_3.1.1
     - NIST800-171_3.1.10
     - NIST800-171_3.1.11
-    - NIST800-53_AC-2_5
-    - NIST800-53_AC-11
-    - NIST800-53_AC-11_1
-    - NIST800-53_AC-12
     - NIST800-53R5_AC-2_5
     - NIST800-53R5_AC-11
     - NIST800-53R5_AC-11_1
@@ -97,7 +89,6 @@
     - patch
     - logon
     - NIST800-171_3.1.9
-    - NIST800-53_AC-8
     - NIST800-53R5_AC-8
   community.windows.win_security_policy:
     section: Registry Values
@@ -114,7 +105,6 @@
     - patch
     - logon
     - NIST800-171_3.1.9
-    - NIST800-53_AC-8
     - NIST800-53R5_AC-8
   ansible.windows.win_regedit:
     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
@@ -132,7 +122,6 @@
     - patch
     - logon
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_13
     - NIST800-53R5_IA-5_13
   block:
     - name: "2.3.7.6 | PATCH | Ensure Interactive logon Number of previous logons to cache in case domain controller is not available is set to 4 or fewer logons MS only. | Apply Settings To Registry | Member Server"
@@ -166,7 +155,6 @@
     - patch
     - logon
     - NIST800-171_3.5.2
-    - NIST800-53_IA-5_1
     - NIST800-53R5_IA-5_1
   block:
     - name: "2.3.7.7 | PATCH | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days. | Apply Settings To Registry."
@@ -209,10 +197,6 @@
     - NIST800-171_3.1.1
     - NIST800-171_3.1.10
     - NIST800-171_3.1.11
-    - NIST800-53_AC-2_5
-    - NIST800-53_AC-11
-    - NIST800-53_AC-11_1
-    - NIST800-53_AC-12
     - NIST800-53R5_AC-2_5
     - NIST800-53R5_AC-11
     - NIST800-53R5_AC-11_1
@@ -234,10 +218,6 @@
     - NIST800-171_3.1.1
     - NIST800-171_3.1.10
     - NIST800-171_3.1.11
-    - NIST800-53_AC-2_5
-    - NIST800-53_AC-11
-    - NIST800-53_AC-11_1
-    - NIST800-53_AC-12
     - NIST800-53R5_AC-2_5
     - NIST800-53R5_AC-11
     - NIST800-53R5_AC-11_1

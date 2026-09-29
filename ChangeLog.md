@@ -68,6 +68,7 @@
   - NIST800-53 task tags removed, NIST800-53R5 and NIST800-171 kept
   - README tagging example shows NIST800-53R5 only
   - Clear up confusion in GPO wording (this is currently WIP)
+  - fix: removed private workflow
 
 ## September 2026 Updates - GPO creation removed
 

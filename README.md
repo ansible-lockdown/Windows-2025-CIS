@@ -81,6 +81,12 @@ This role was developed against a clean install of the Windows 2025 Operating Sy
 
 To use release version please point to main branch and relevant release for the cis benchmark you wish to work with.
 
+### Deviations from the benchmark
+
+- **2.2.31 Generate security audits** is set to `LOCAL SERVICE, NETWORK SERVICE, RESTRICTED SERVICES\PrintSpoolerService`, not the v1.0.0 value of `LOCAL SERVICE, NETWORK SERVICE`.
+  The Print Spooler service grants this right to its own account every time it starts, so the v1.0.0 value only holds until the next service start or reboot. The role would report a change on every run and the audit would fail on any host where the spooler runs.
+  CIS corrected the recommendation in v2.1.0 (control 2.2.30); this role applies that value. The audit asserts the same three accounts.
+
 ---
 
 ## Domain Members
@@ -147,18 +153,23 @@ loosening the `when` to match the tag would write a value the domain reverts.
 
 The benchmark has 462 recommendations. The role holds a task for every one of them,
 but CIS scopes many to a single profile, and Windows scopes Account Policy to the
-domain. Counting only the host facts the prelim sets - not the per rule toggles - a
-default run enforces:
+domain. Counting only the host facts the prelim sets and the profile defaults - not
+the per rule toggles - a default run enforces:
 
-| Target | Enforced by this role | Skipped: not in the CIS profile for this target | Skipped: externally managed |
-|---|---|---|---|
-| Standalone server | 395 | 67 | 0 |
-| Domain member server | 420 | 31 | 11 |
-| Domain controller | 410 | 42 | 10 |
+| Target | Enforced by this role | Skipped: not applicable to this target | Skipped: NGWS profile off | Skipped: externally managed |
+|---|---|---|---|---|
+| Standalone server | 406 | 49 | 7 | 0 |
+| Domain member server | 413 | 31 | 7 | 11 |
+| Domain controller | 409 | 36 | 7 | 10 |
 
-"Not in the CIS profile" means the benchmark itself does not apply the control to
-that target - the 31 skipped on a member server are the Level 1 Domain Controller
-controls, and the DC skips the Member Server ones. Those are not gaps.
+"Not applicable" means the benchmark does not apply the control to that target - the
+31 skipped on a member server are the Level 1 Domain Controller controls, and the DC
+skips the Member Server ones. Those are not gaps. A standalone server also skips the
+Member Server controls that would cut off its remote administration or need a domain;
+see [Stand-alone Servers](#stand-alone-servers).
+
+"NGWS profile off" is the optional Next Generation Windows Security profile, which
+defaults off; see [Next Generation Windows Security profile](#next-generation-windows-security-profile).
 
 "Externally managed" is the set the role cannot make stick locally. On a member
 server that is 1.1.1 - 1.1.5, 1.1.7, 1.2.1 - 1.2.4 and 2.3.11.6. A domain controller
@@ -185,11 +196,39 @@ This is managed using tags:
 - level1-memberserver
 - level2-domaincontroller
 - level2-memberserver
-- level1-domainmember
 - ngws-domaincontroller
 - ngws-memberserver
 
 The control found in defaults main also need to reflect this as this control the testing that takes place if you are using the audit component.
+
+### Next Generation Windows Security profile
+
+Next Generation Windows Security (NGWS) is an optional CIS profile, not a third level.
+Its eight controls - 18.9.5.x Device Guard and Credential Guard, and 18.9.26.2 LSA
+protection - run only when `win25cis_ngws` is true (default false, in
+`defaults/main/main.yml`), and the audit asserts them on the same switch, so the two
+always agree. They need virtualization based security support on the host, so turn it
+on deliberately. The ngws tags select within the profile; they do not enable it on
+their own.
+
+## Stand-alone Servers
+
+The benchmark is written for domain joined servers and says it is not intended for
+standalone or workgroup systems. This role still runs on one, and treats it as a member
+server wherever that is safe: 18 of the member server (MS only) controls apply to any
+server that is not a domain controller.
+
+The rest stay member server only:
+
+- 2.2.22, 2.2.27 and 18.4.1 deny or filter network and Remote Desktop logon for local
+  accounts. On a standalone server every account is local, so applying them cuts off
+  remote administration - the benchmark carries that caution.
+- LAPS (18.9.25.x), the Netlogon secure channel (2.3.6.1, 2.3.6.2), cached domain logons
+  (2.3.7.6), domain controller unlock (2.3.7.8), 2.3.9.5, 18.6.21.2 and 18.9.28.4 need a
+  domain to mean anything.
+
+Section 1 account policy is applied on a standalone server only; on a domain member the
+Default Domain Policy owns it.
 
 ## Coming From A Previous Release
 
@@ -201,8 +240,9 @@ Further details can be seen in the [Changelog](./ChangeLog.md)
 ## Group Policy Objects
 
 This role applies the benchmark directly to the host it runs against. It does not
-create Group Policy Objects. Creating CIS GPOs on a domain controller is provided
-separately to subscribers by the `Windows-2025-CIS-GPO` role.
+create Group Policy Objects.
+
+### GPOs are being addressed currently and will reside in a new repository once released.
 
 ### Migrating from the in-role GPO path
 
@@ -342,15 +382,14 @@ Below is an example of the tag section from a control within this role. Using th
       tags:
         - level1-domaincontroller
         - level1-memberserver
-        - rule_18.3.3
+        - rule_18.4.2
         - patch
         - smb
         - NIST800-171_3.4.2
-        - NIST800-171_3.5.2
-        - NIST800-53R5_CM-6_b
-        - NIST800-53R5_AC-2
-        - NIST800-53R5_AC-17_2
-        - NIST800-53R5_IA-5_1_d
+        - NIST800-171_3.4.6
+        - NIST800-171_3.4.7
+        - NIST800-53R5_CM-6
+        - NIST800-53R5_CM-7
 ```
 
 ### Conversion Examples in Use:

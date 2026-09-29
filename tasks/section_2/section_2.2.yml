@@ -53,7 +53,7 @@
 - name: "2.2.3 | PATCH | Ensure Access this computer from the network is set to Administrators, Authenticated Users MS only | Member Server"
   when:
     - win25cis_rule_2_2_3
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
     - not (win_skip_for_test | bool)
   tags:
     - level1-memberserver
@@ -179,7 +179,7 @@
 - name: "2.2.8 | PATCH |  Ensure Allow log on locally is set to Administrators (MS only)"
   when:
     - win25cis_rule_2_2_8
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.8
@@ -230,7 +230,7 @@
 - name: "2.2.10 | PATCH | Ensure 'Allow log on through Remote Desktop Services' is set to 'Administrators, Remote Desktop Users' (MS Only)"
   when:
     - win25cis_rule_2_2_10
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.10
@@ -452,7 +452,7 @@
 - name: "2.2.19 | PATCH | Ensure Create symbolic links is set to Administrators NT VIRTUAL MACHINE\\Virtual Machines MS only | Member Server"
   when:
     - win25cis_rule_2_2_19
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.19
@@ -715,7 +715,7 @@
 - name: "2.2.29 | PATCH | Ensure Enable computer and user accounts to be trusted for delegation is set to No One MS only | Member Server"
   when:
     - win25cis_rule_2_2_29
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.29
@@ -805,15 +805,16 @@
         }
       changed_when: false
       check_mode: false
-      register: rule_2_2_31_current
+      register: discovered_2_2_31_current
 
-    - name: "2.2.31 | PATCH | Set Generate security audits to LOCAL SERVICE, NETWORK SERVICE"
-      when: rule_2_2_31_current.stdout | trim != 'S-1-5-19,S-1-5-20'
+    - name: "2.2.31 | PATCH | Set Generate security audits to LOCAL SERVICE, NETWORK SERVICE, RESTRICTED SERVICES PrintSpoolerService"
+      when: discovered_2_2_31_current.stdout | trim != 'S-1-5-19,S-1-5-20,S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229'
       ansible.windows.win_user_right:
         name: SeAuditPrivilege
         users:
           - LOCAL SERVICE
           - NETWORK SERVICE
+          - S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229
         action: set
 
 - name: "2.2.32 | PATCH | Ensure Impersonate a client after authentication is set to Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE DC only | Domain Controller"
@@ -849,7 +850,7 @@
 - name: "2.2.33 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE, NETWORK SERVICE, SERVICE and when the Web Server IIS Role with Web Services Role Service is installed IIS IUSRS MS only"
   when:
     - win25cis_rule_2_2_33
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.33
@@ -1027,7 +1028,7 @@
 - name: "2.2.39 | PATCH | Ensure 'Manage auditing and security log' is set to 'Administrators' (MS only) | Member Server"
   when:
     - win25cis_rule_2_2_39
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.2.39

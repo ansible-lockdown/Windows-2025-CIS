@@ -20,10 +20,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_1_audit
+      register: discovered_17_5_1_audit
 
     - name: "17.5.1 | PATCH | Ensure Audit Account Lockout is set to include Failure | Enable Failure for Account Lockout"
-      when: "'Failure' not in rule_17_5_1_audit.stdout"
+      when: "'Failure' not in discovered_17_5_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9217-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.5.2 | PATCH | Ensure Audit Group Membership is set to include Success"
@@ -46,10 +46,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_2_audit
+      register: discovered_17_5_2_audit
 
     - name: "17.5.2 | PATCH | Ensure Audit Group Membership is set to include Success | Enable Success for Group Membership"
-      when: "'Success' not in rule_17_5_2_audit.stdout"
+      when: "'Success' not in discovered_17_5_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9249-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.5.3 | PATCH | Ensure Audit Logoff is set to include Success"
@@ -72,10 +72,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_3_audit
+      register: discovered_17_5_3_audit
 
     - name: "17.5.3 | PATCH | Ensure Audit Logoff is set to include Success | Enable Success for Logoff"
-      when: "'Success' not in rule_17_5_3_audit.stdout"
+      when: "'Success' not in discovered_17_5_3_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9216-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.5.4 | PATCH | Ensure Audit Logon is set to Success and Failure"
@@ -98,14 +98,14 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_4_audit
+      register: discovered_17_5_4_audit
 
     - name: "17.5.4 | PATCH | Ensure Audit Logon is set to Success and Failure | Enable Success for Logon"
-      when: "'Success' not in rule_17_5_4_audit.stdout"
+      when: "'Success' not in discovered_17_5_4_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9215-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.5.4 | PATCH | Ensure Audit Logon is set to Success and Failure | Enable Failure for Logon"
-      when: "'Failure' not in rule_17_5_4_audit.stdout"
+      when: "'Failure' not in discovered_17_5_4_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9215-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.5.5 | PATCH | Ensure Audit Other Logon/Logoff Events is set to Success and Failure"
@@ -128,14 +128,14 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_5_audit
+      register: discovered_17_5_5_audit
 
     - name: "17.5.5 | PATCH | Ensure Audit Other Logon/Logoff Events is set to Success and Failure | Enable Success for Other Logon/Logoff Events"
-      when: "'Success' not in rule_17_5_5_audit.stdout"
+      when: "'Success' not in discovered_17_5_5_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce921c-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.5.5 | PATCH | Ensure Audit Other Logon/Logoff Events is set to Success and Failure | Enable Failure for Other Logon/Logoff Events"
-      when: "'Failure' not in rule_17_5_5_audit.stdout"
+      when: "'Failure' not in discovered_17_5_5_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce921c-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.5.6 | PATCH | Ensure Audit Special Logon is set to include Success"
@@ -158,8 +158,8 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_5_6_audit
+      register: discovered_17_5_6_audit
 
     - name: "17.5.6 | PATCH | Ensure Audit Special Logon is set to include Success | Enable Success for Special Logon"
-      when: "'Success' not in rule_17_5_6_audit.stdout"
+      when: "'Success' not in discovered_17_5_6_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce921b-69ae-11d9-bed3-505054503030}" /success:enable

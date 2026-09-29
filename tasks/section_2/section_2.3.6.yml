@@ -3,12 +3,10 @@
 - name: "2.3.6.1 | PATCH | Ensure Domain member Digitally encrypt or sign secure channel data always is set to Enabled"
   when:
     - win25cis_rule_2_3_6_1
-    - not prelim_win25cis_is_domain_controller
     - not prelim_win25cis_is_standalone
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.1
     - patch
     - encryption
@@ -29,12 +27,10 @@
 - name: "2.3.6.2 | PATCH | Ensure Domain member Digitally encrypt secure channel data when possible is set to Enabled"
   when:
     - win25cis_rule_2_3_6_2
-    - not prelim_win25cis_is_domain_controller
     - not prelim_win25cis_is_standalone
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.2
     - patch
     - encryption
@@ -55,11 +51,9 @@
 - name: "2.3.6.3 | PATCH | Ensure Domain member Digitally sign secure channel data when possible is set to Enabled"
   when:
     - win25cis_rule_2_3_6_3
-    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.3
     - patch
     - logon
@@ -80,11 +74,9 @@
 - name: "2.3.6.4 | PATCH | Ensure 'Domain member Disable machine account password changes' is set to Disabled"
   when:
     - win25cis_rule_2_3_6_4
-    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.4
     - patch
     - logon
@@ -99,18 +91,16 @@
 - name: "2.3.6.5 | PATCH | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0"
   when:
     - win25cis_rule_2_3_6_5
-    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.5
     - patch
     - account
     - NIST800-171_3.5.2
     - NIST800-53R5_IA-5_1
   block:
-    - name: "2.3.6.5 | PATCH | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0. | Apply Settings To Registry."
+    - name: "2.3.6.5 | PATCH | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0 | Apply Settings To Registry"
       when:
         - win25cis_domain_member_maximum_password_age <= 30
         - win25cis_domain_member_maximum_password_age > 0
@@ -120,7 +110,7 @@
         data: "{{ win25cis_domain_member_maximum_password_age }}"
         type: dword
 
-    - name: "2.3.6.5 | AUDIT | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0. | Warning Check For Variable Standards."
+    - name: "2.3.6.5 | AUDIT | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0 | Warning Check For Variable Standards"
       when:
         - win25cis_domain_member_maximum_password_age > 30 or
           win25cis_domain_member_maximum_password_age == 0
@@ -129,23 +119,21 @@
           - "Warning!! You have an invalid number of days set for win25cis_domain_member_maximum_password_age please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.6.5 | AUDIT | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0. | Warn Count."
-      vars:
-        warn_control_id: '2.3.6.5'
+    - name: "2.3.6.5 | AUDIT | Ensure Domain member Maximum machine account password age is set to 30 or fewer days but not 0 | Warn Count"
       when:
         - win25cis_domain_member_maximum_password_age > 30 or
           win25cis_domain_member_maximum_password_age == 0
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.6.5'
 
 - name: "2.3.6.6 | PATCH | Ensure Domain member Require strong Windows 2000 or later session key is set to Enabled"
   when:
     - win25cis_rule_2_3_6_6
-    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
     - level1-memberserver
-    - level1-domainmember
     - rule_2.3.6.6
     - patch
     - logon

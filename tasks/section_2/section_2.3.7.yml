@@ -52,7 +52,7 @@
     - NIST800-53R5_AC-11_1
     - NIST800-53R5_AC-12
   block:
-    - name: "2.3.7.3 | PATCH | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0. | Apply Settings To Registry."
+    - name: "2.3.7.3 | PATCH | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0 | Apply Settings To Registry"
       when:
         - win25cis_inactivity_timeout_seconds <= 900
         - win25cis_inactivity_timeout_seconds > 0
@@ -62,7 +62,7 @@
         data: "{{ win25cis_inactivity_timeout_seconds }}"
         type: dword
 
-    - name: "2.3.7.3 | AUDIT | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0. | Warning Check For Variable Standards."
+    - name: "2.3.7.3 | AUDIT | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0 | Warning Check For Variable Standards"
       when:
         - win25cis_inactivity_timeout_seconds > 900 or
           win25cis_inactivity_timeout_seconds == 0
@@ -71,14 +71,14 @@
           - "Warning!! You have an invalid number of seconds set for win25cis_inactivity_timeout_seconds please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.7.3 | AUDIT | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0. | Warn Count."
-      vars:
-        warn_control_id: '2.3.7.3'
+    - name: "2.3.7.3 | AUDIT | Ensure Interactive logon Machine inactivity limit is set to 900 or fewer seconds but not 0 | Warn Count"
       when:
         - win25cis_inactivity_timeout_seconds > 900 or
           win25cis_inactivity_timeout_seconds == 0
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.7.3'
 
 - name: "2.3.7.4 | PATCH | Configure Interactive logon Message text for users attempting to log on"
   when: win25cis_rule_2_3_7_4
@@ -124,7 +124,7 @@
     - NIST800-171_3.5.2
     - NIST800-53R5_IA-5_13
   block:
-    - name: "2.3.7.6 | PATCH | Ensure Interactive logon Number of previous logons to cache in case domain controller is not available is set to 4 or fewer logons MS only. | Apply Settings To Registry | Member Server"
+    - name: "2.3.7.6 | PATCH | Ensure Interactive logon Number of previous logons to cache in case domain controller is not available is set to 4 or fewer logons MS only | Apply Settings To Registry | Member Server"
       when: win25cis_cached_logons_count <= 4
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Microsoft\Windows Nt\CurrentVersion\Winlogon
@@ -140,11 +140,11 @@
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
     - name: "2.3.7.6 | AUDIT | Ensure Interactive logon Number of previous logons to cache in case domain controller is not available is set to 4 or fewer logons MS only | Warn Count | Member Server"
-      vars:
-        warn_control_id: '2.3.7.6'
       when: win25cis_cached_logons_count > 4
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.7.6'
 
 - name: "2.3.7.7 | PATCH | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days"
   when: win25cis_rule_2_3_7_7
@@ -157,7 +157,7 @@
     - NIST800-171_3.5.2
     - NIST800-53R5_IA-5_1
   block:
-    - name: "2.3.7.7 | PATCH | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days. | Apply Settings To Registry."
+    - name: "2.3.7.7 | PATCH | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days | Apply Settings To Registry"
       when:
         - win25cis_password_expiry_warning_days >= 5
         - win25cis_password_expiry_warning_days <= 14
@@ -167,7 +167,7 @@
         data: "{{ win25cis_password_expiry_warning_days }}"
         type: dword
 
-    - name: "2.3.7.7 | AUDIT | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days. | Warning Check For Variable Standards."
+    - name: "2.3.7.7 | AUDIT | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days | Warning Check For Variable Standards"
       when:
         - win25cis_password_expiry_warning_days < 5 or
           win25cis_password_expiry_warning_days > 14
@@ -176,14 +176,14 @@
           - "Warning!! You have an invalid number of days set for win25cis_password_expiry_warning_days please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.7.7 | AUDIT | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days. | Warn Count."
-      vars:
-        warn_control_id: '2.3.7.7'
+    - name: "2.3.7.7 | AUDIT | Ensure Interactive logon Prompt user to change password before expiration is set to between 5 and 14 days | Warn Count"
       when:
         - win25cis_password_expiry_warning_days < 5 or
           win25cis_password_expiry_warning_days > 14
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.7.7'
 
 - name: "2.3.7.8 | PATCH | Ensure Interactive logon Require Domain Controller Authentication to unlock workstation is set to Enabled MS only | Member Server"
   when:
@@ -207,7 +207,7 @@
     data: 1
     type: dword
 
-- name: "2.3.7.9 | PATCH | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher."
+- name: "2.3.7.9 | PATCH | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher"
   when: win25cis_rule_2_3_7_9
   tags:
     - level1-domaincontroller
@@ -223,7 +223,7 @@
     - NIST800-53R5_AC-11_1
     - NIST800-53R5_AC-12
   block:
-    - name: "2.3.7.9 | PATCH | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Apply Settings To Registry."
+    - name: "2.3.7.9 | PATCH | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Apply Settings To Registry"
       when:
         - win25cis_sc_remove_option >= 1
         - win25cis_sc_remove_option <= 3
@@ -233,7 +233,7 @@
         data: "{{ win25cis_sc_remove_option }}"
         type: string
 
-    - name: "2.3.7.9 | AUDIT | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Warning Check For Variable Standards."
+    - name: "2.3.7.9 | AUDIT | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Warning Check For Variable Standards"
       when:
         - win25cis_sc_remove_option == 0 or
           win25cis_sc_remove_option > 3
@@ -242,11 +242,11 @@
           - "Warning!! You have an invalid setting for win25cis_sc_remove_option. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.7.9 | AUDIT | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Warn Count."
-      vars:
-        warn_control_id: '2.3.7.9'
+    - name: "2.3.7.9 | AUDIT | Ensure Interactive logon Smart card removal behavior is set to Lock Workstation or higher | Warn Count"
       when:
         - win25cis_sc_remove_option == 0 or
           win25cis_sc_remove_option > 3
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.7.9'

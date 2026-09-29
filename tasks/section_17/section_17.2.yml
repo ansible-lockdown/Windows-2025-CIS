@@ -20,14 +20,14 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_1_audit
+      register: discovered_17_2_1_audit
 
     - name: "17.2.1 | PATCH | Ensure Audit Application Group Management is set to Success and Failure | Enable Success for Application Group Management"
-      when: "'Success' not in rule_17_2_1_audit.stdout"
+      when: "'Success' not in discovered_17_2_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9239-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.2.1 | PATCH | Ensure Audit Application Group Management is set to Success and Failure | Enable Failure for Application Group Management"
-      when: "'Failure' not in rule_17_2_1_audit.stdout"
+      when: "'Failure' not in discovered_17_2_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9239-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.2.2 | PATCH | Ensure Audit Computer Account Management is set to include Success DC only | Domain Controller"
@@ -51,10 +51,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_2_audit
+      register: discovered_17_2_2_audit
 
     - name: "17.2.2 | PATCH | Ensure Audit Computer Account Management is set to include Success DC only | Enable Success for Computer Account Management | Domain Controller"
-      when: "'Success' not in rule_17_2_2_audit.stdout"
+      when: "'Success' not in discovered_17_2_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9236-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.2.3 | PATCH | Ensure Audit Distribution Group Management is set to include Success DC only | Domain Controller"
@@ -78,10 +78,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_3_audit
+      register: discovered_17_2_3_audit
 
     - name: "17.2.3 | PATCH | Ensure Audit Distribution Group Management is set to include Success DC only | Enable Success for Distribution Group Management | Domain Controller"
-      when: "'Success' not in rule_17_2_3_audit.stdout"
+      when: "'Success' not in discovered_17_2_3_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9238-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.2.4 | PATCH | Ensure Audit Other Account Management Events is set to include Success DC only | Domain Controller"
@@ -105,10 +105,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_4_audit
+      register: discovered_17_2_4_audit
 
     - name: "17.2.4 | PATCH | Ensure Audit Other Account Management Events is set to include Success DC only | Enable Success for Other Account Management Events | Domain Controller"
-      when: "'Success' not in rule_17_2_4_audit.stdout"
+      when: "'Success' not in discovered_17_2_4_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce923a-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.2.5 | PATCH | Ensure Audit Security Group Management is set to include Success"
@@ -131,10 +131,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_5_audit
+      register: discovered_17_2_5_audit
 
     - name: "17.2.5 | PATCH | Ensure Audit Security Group Management is set to include Success | Enable Success for Security Group Management"
-      when: "'Success' not in rule_17_2_5_audit.stdout"
+      when: "'Success' not in discovered_17_2_5_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9237-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.2.6 | PATCH | Ensure Audit User Account Management is set to Success and Failure"
@@ -157,12 +157,12 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_2_6_audit
+      register: discovered_17_2_6_audit
 
     - name: "17.2.6 | PATCH | Ensure Audit User Account Management is set to Success and Failure | Enable Success for User Account Management"
-      when: "'Success' not in rule_17_2_6_audit.stdout"
+      when: "'Success' not in discovered_17_2_6_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9235-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.2.6 | PATCH | Ensure Audit User Account Management is set to Success and Failure | Enable Failure for User Account Management"
-      when: "'Failure' not in rule_17_2_6_audit.stdout"
+      when: "'Failure' not in discovered_17_2_6_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9235-69ae-11d9-bed3-505054503030}" /failure:enable

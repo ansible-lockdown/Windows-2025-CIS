@@ -14,8 +14,6 @@
   loop:
     - "{{ pre_audit_outfile }}"
     - "{{ post_audit_outfile }}"
-  loop_control:
-    label: "{{ item }}"
 
 # Copies to another location on the managed node itself, so audit_output_destination
 # must be a Windows path when this method is chosen.
@@ -31,8 +29,6 @@
   loop:
     - "{{ pre_audit_outfile }}"
     - "{{ post_audit_outfile }}"
-  loop_control:
-    label: "{{ item }}"
 
 - name: "POST | FETCH | Fetch files and copy to controller | Warning if issues with fetch_audit_files"
   when:
@@ -44,7 +40,7 @@
         msg: "Warning!! Unable to write to {{ audit_output_destination }} for audit file copy"
 
     - name: "POST | FETCH | Fetch files and copy to controller | Warning if issues with fetch_audit_files"
-      vars:
-        warn_control_id: "FETCH_AUDIT_FILES"
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: "FETCH_AUDIT_FILES"

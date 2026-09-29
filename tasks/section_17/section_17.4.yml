@@ -21,10 +21,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_4_1_audit
+      register: discovered_17_4_1_audit
 
     - name: "17.4.1 | PATCH | Ensure Audit Directory Service Access is set to include Failure DC only | Enable Failure for Directory Service Access | Domain Controller"
-      when: "'Failure' not in rule_17_4_1_audit.stdout"
+      when: "'Failure' not in discovered_17_4_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce923b-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.4.2 | PATCH | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Domain Controller"
@@ -48,8 +48,8 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_4_2_audit
+      register: discovered_17_4_2_audit
 
     - name: "17.4.2 | PATCH | Ensure 'Audit Directory Service Changes' is set to include Success DC only | Enable Success for Directory Service Changes | Domain Controller"
-      when: "'Success' not in rule_17_4_2_audit.stdout"
+      when: "'Success' not in discovered_17_4_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce923c-69ae-11d9-bed3-505054503030}" /success:enable

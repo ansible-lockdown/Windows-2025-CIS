@@ -20,12 +20,12 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_8_1_audit
+      register: discovered_17_8_1_audit
 
     - name: "17.8.1 | PATCH | Ensure Audit Sensitive Privilege Use is set to Success and Failure | Enable Success for Sensitive Privilege Use"
-      when: "'Success' not in rule_17_8_1_audit.stdout"
+      when: "'Success' not in discovered_17_8_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9228-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.8.1 | PATCH | Ensure Audit Sensitive Privilege Use is set to Success and Failure | Enable Failure for Sensitive Privilege Use"
-      when: "'Failure' not in rule_17_8_1_audit.stdout"
+      when: "'Failure' not in discovered_17_8_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9228-69ae-11d9-bed3-505054503030}" /failure:enable

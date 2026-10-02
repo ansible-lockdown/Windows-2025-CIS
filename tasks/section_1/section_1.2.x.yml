@@ -4,7 +4,7 @@
 # which Windows requires to be no greater than the duration. Applying 1.2.2 is what enables lockout,
 # and Windows then auto-populates duration and reset to 30, so the reconcile step below re-reads the
 # pair after 1.2.2 and lowers the reset counter only when it would block 1.2.1.
-- name: "1.2.2 | PATCH | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0."
+- name: "1.2.2 | PATCH | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0"
   when:
     - win25cis_rule_1_2_2
     - not prelim_win25cis_account_policy_is_domain_scoped
@@ -19,7 +19,7 @@
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
-    - name: "1.2.2 | PATCH | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0. | Set Variable."
+    - name: "1.2.2 | PATCH | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0 | Set Variable"
       when:
         - win25cis_bad_login_lockout_count <= 5
         - win25cis_bad_login_lockout_count > 0
@@ -28,7 +28,7 @@
         key: LockoutBadCount
         value: "{{ win25cis_bad_login_lockout_count }}"
 
-    - name: "1.2.2 | AUDIT | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0. | Verify Variable Not 0 or more then 5 warning."
+    - name: "1.2.2 | AUDIT | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0 | Verify Variable Not 0 or more then 5 warning"
       when:
         - win25cis_bad_login_lockout_count > 5 or
           win25cis_bad_login_lockout_count == 0
@@ -37,14 +37,14 @@
           - "Warning!! You have an invalid number of attempts set for win25cis_bad_login_lockout_count please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "1.2.2 | AUDIT | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0. | Set warning count."
-      vars:
-        warn_control_id: '1.2.2'
+    - name: "1.2.2 | AUDIT | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0 | Set warning count"
       when:
         - win25cis_bad_login_lockout_count > 5 or
           win25cis_bad_login_lockout_count == 0
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '1.2.2'
 
 - name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes | Reconcile the reset counter"
   when:
@@ -97,28 +97,28 @@
         key: ResetLockoutCount
         value: "{{ win25cis_account_lockout_counter_reset }}"
 
-    - name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes. | Set Variable"
+    - name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes | Set Variable"
       when: win25cis_account_lockout_duration >= 15
       community.windows.win_security_policy:
         section: System Access
         key: LockoutDuration
         value: "{{ win25cis_account_lockout_duration }}"
 
-    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes. | Verify variable set to 15 or more minutes warning."
+    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Verify variable set to 15 or more minutes warning"
       when: win25cis_account_lockout_duration < 15
       ansible.builtin.debug:
         msg:
           - "Warning!! You have an invalid number of minutes set for win25cis_account_lockout_duration please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes. | Set warning count."
-      vars:
-        warn_control_id: '1.2.1'
+    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Set warning count"
       when: win25cis_account_lockout_duration < 15
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '1.2.1'
 
-- name: "1.2.4 | PATCH | Ensure Reset account lockout counter after is set to 15 or more minutes."
+- name: "1.2.4 | PATCH | Ensure Reset account lockout counter after is set to 15 or more minutes"
   when:
     - win25cis_rule_1_2_4
     - not prelim_win25cis_account_policy_is_domain_scoped
@@ -133,7 +133,7 @@
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
-    - name: "1.2.4 | PATCH | Ensure Reset account lockout counter after is set to 15 or more minutes. | Set Variable."
+    - name: "1.2.4 | PATCH | Ensure Reset account lockout counter after is set to 15 or more minutes | Set Variable"
       when:
         - win25cis_account_lockout_counter_reset >= 15
         - win25cis_account_lockout_counter_reset <= win25cis_account_lockout_duration
@@ -142,7 +142,7 @@
         key: ResetLockoutCount
         value: "{{ win25cis_account_lockout_counter_reset }}"
 
-    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes. | Verify variable set to 15 or more minutes warning."
+    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes | Verify variable set to 15 or more minutes warning"
       when:
         - win25cis_account_lockout_counter_reset > win25cis_account_lockout_duration or
           win25cis_account_lockout_counter_reset < 15
@@ -151,14 +151,14 @@
           - "Warning!! You have an invalid number of minutes set for win25cis_account_lockout_counter_reset please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes. | | Set warning count."
-      vars:
-        warn_control_id: '1.2.4'
+    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes | | Set warning count"
       when:
         - win25cis_account_lockout_counter_reset > win25cis_account_lockout_duration or
           win25cis_account_lockout_counter_reset < 15
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '1.2.4'
 
 - name: "1.2.3 | PATCH | Ensure Allow Administrator account lockout is set to Enabled"
   when:

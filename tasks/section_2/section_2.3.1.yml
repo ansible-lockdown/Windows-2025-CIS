@@ -3,7 +3,7 @@
 - name: "2.3.1.1 | PATCH | Ensure Accounts Guest account status is set to Disabled MS only | Member Server"
   when:
     - win25cis_rule_2_3_1_1
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
     - rule_2.3.1.1
@@ -45,26 +45,26 @@
     - NIST800-171_3.5.2
     - NIST800-53R5_IA-5
   block:
-    - name: "2.3.1.3 | PATCH | Configure Accounts Rename administrator account. | Make Changes To Admin Name."
+    - name: "2.3.1.3 | PATCH | Configure Accounts Rename administrator account | Make Changes To Admin Name"
       when: "'adminchangethis' not in win25cis_admin_username"
       community.windows.win_security_policy:
         section: System Access
         key: newadministratorname
         value: "{{ win25cis_admin_username }}"
 
-    - name: "2.3.1.3 | AUDIT | Configure Accounts Rename administrator account. | Warning Msg For Default Variable Not Edited."
+    - name: "2.3.1.3 | AUDIT | Configure Accounts Rename administrator account | Warning Msg For Default Variable Not Edited"
       when: "'adminchangethis' in win25cis_admin_username"
       ansible.builtin.debug:
         msg:
           - "Warning!! You have not changed the default admin username in win25cis_admin_username please"
           - "make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.1.3 | AUDIT | Configure Accounts Rename administrator account. | Add Warn Count."
-      vars:
-        warn_control_id: '2.3.1.3'
+    - name: "2.3.1.3 | AUDIT | Configure Accounts Rename administrator account | Add Warn Count"
       when: "'adminchangethis' in win25cis_admin_username"
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.1.3'
 
 - name: "2.3.1.4 | PATCH | Configure Accounts Rename guest account"
   when: win25cis_rule_2_3_1_4
@@ -77,23 +77,23 @@
     - NIST800-171_3.5.2
     - NIST800-53R5_IA-5
   block:
-    - name: "2.3.1.4 | PATCH | Configure Accounts Rename guest account. | Make Changes To Guest Name."
+    - name: "2.3.1.4 | PATCH | Configure Accounts Rename guest account | Make Changes To Guest Name"
       when: "'guestchangethis' not in win25cis_guest_username"
       community.windows.win_security_policy:
         section: System Access
         key: NewGuestName
         value: "{{ win25cis_guest_username }}"
 
-    - name: "2.3.1.4 | AUDIT | Configure Accounts Rename guest account. | Warning Msg For Default Variable Not Edited."
+    - name: "2.3.1.4 | AUDIT | Configure Accounts Rename guest account | Warning Msg For Default Variable Not Edited"
       when: "'guestchangethis' in win25cis_guest_username"
       ansible.builtin.debug:
         msg:
           - "Warning!! You have not changed the default guest name in win25cis_guest_username please"
           - "make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.1.4 | AUDIT | Configure Accounts Rename guest account. | Add Warn Count."
-      vars:
-        warn_control_id: '2.3.1.4'
+    - name: "2.3.1.4 | AUDIT | Configure Accounts Rename guest account | Add Warn Count"
       when: "'guestchangethis' in win25cis_guest_username"
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.1.4'

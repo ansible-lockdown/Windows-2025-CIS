@@ -1,6 +1,14 @@
 # ChangeLog
 
 ## CIS Benchmark v1.0.0
+## October 2026 Updates
+
+  - fix: 2.3.5.2 VulnerableChannelAllowList removed, not written as 0
+  - fix: 1.2.4 checked against the live lockout duration when 1.2.1 is off
+  - fix: check_mode false on the installation type and feature discovery reads
+  - style: fetch_audit_output.yml loop placed before register
+
+## CIS Benchmark v1.0.0
 ## September 2026 Updates - audit content
 
   - fix: 18.9.19.7 removes DisableBkGndGroupPolicy from Policies\System

@@ -31,6 +31,7 @@
   ansible.windows.win_reg_stat:
     path: HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion
     name: InstallationType
+  check_mode: false
   register: prelim_get_windows_installation_type
 
 - name: Main | Set Windows Installation Type

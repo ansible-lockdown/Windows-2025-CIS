@@ -32,8 +32,7 @@
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     name: VulnerableChannelAllowList
-    data: 0
-    type: dword
+    state: absent
 
 - name: "2.3.5.3 | PATCH | Ensure Domain controller LDAP server channel binding token requirements is set to Always DC only | Domain Controller"
   when:

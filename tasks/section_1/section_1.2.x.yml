@@ -46,9 +46,9 @@
       vars:
         warn_control_id: '1.2.2'
 
-- name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes | Reconcile the reset counter"
+- name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Read the lockout policy as 1.2.2 left it"
   when:
-    - win25cis_rule_1_2_1
+    - win25cis_rule_1_2_1 or win25cis_rule_1_2_4
     - not prelim_win25cis_account_policy_is_domain_scoped
   tags:
     - level1-domaincontroller
@@ -61,7 +61,7 @@
     - NIST800-53R5_AC-7
     - NIST800-53R5_AC-19
   block:
-    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Read the lockout policy as 1.2.2 left it"
+    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Read the lockout policy as 1.2.2 left it | Export"
       ansible.windows.win_shell: |
         $ErrorActionPreference = 'Stop'
         # Cmdlets, operators and $Matches only - no .NET method calls - so this still
@@ -83,11 +83,26 @@
       check_mode: false
       register: discovered_lockout_policy
 
-    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Set the current lockout facts"
+    - name: "1.2.1 | AUDIT | Ensure Account lockout duration is set to 15 or more minutes | Read the lockout policy as 1.2.2 left it | Set the current lockout facts"
       ansible.builtin.set_fact:
         discovered_win25cis_current_lockout_duration: "{{ discovered_lockout_policy.stdout.split()[0] | int }}"
         discovered_win25cis_current_lockout_reset: "{{ discovered_lockout_policy.stdout.split()[1] | int }}"
 
+- name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes"
+  when:
+    - win25cis_rule_1_2_1
+    - not prelim_win25cis_account_policy_is_domain_scoped
+  tags:
+    - level1-domaincontroller
+    - level1-memberserver
+    - rule_1.2.1
+    - patch
+    - account
+    - NIST800-171_3.1.8
+    - NIST800-171_3.1.18
+    - NIST800-53R5_AC-7
+    - NIST800-53R5_AC-19
+  block:
     - name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes | Lower the reset counter so the duration can be applied"
       when:
         - discovered_win25cis_current_lockout_reset | int > win25cis_account_lockout_duration | int
@@ -137,10 +152,34 @@
       when:
         - win25cis_account_lockout_counter_reset >= 15
         - win25cis_account_lockout_counter_reset <= win25cis_account_lockout_duration
+        - (win25cis_rule_1_2_1 and win25cis_account_lockout_duration >= 15) or
+          discovered_win25cis_current_lockout_duration | default(0) | int == 0 or
+          win25cis_account_lockout_counter_reset <= discovered_win25cis_current_lockout_duration | default(0) | int
       community.windows.win_security_policy:
         section: System Access
         key: ResetLockoutCount
         value: "{{ win25cis_account_lockout_counter_reset }}"
+
+    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes | Warn that the current lockout duration blocks the reset counter"
+      when:
+        - not (win25cis_rule_1_2_1 and win25cis_account_lockout_duration >= 15)
+        - discovered_win25cis_current_lockout_duration | default(0) | int != 0
+        - win25cis_account_lockout_counter_reset > discovered_win25cis_current_lockout_duration | default(0) | int
+      ansible.builtin.debug:
+        msg:
+          - "Warning!! win25cis_account_lockout_counter_reset ({{ win25cis_account_lockout_counter_reset }}) is greater than the current"
+          - "Account lockout duration ({{ discovered_win25cis_current_lockout_duration | default(0) }}) and 1.2.1 is not applying a new duration."
+          - "Windows rejects a reset counter above the duration, so 1.2.4 was not applied. Enable 1.2.1 or raise the duration."
+
+    - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes | Warn that the current lockout duration blocks the reset counter | Set warning count"
+      when:
+        - not (win25cis_rule_1_2_1 and win25cis_account_lockout_duration >= 15)
+        - discovered_win25cis_current_lockout_duration | default(0) | int != 0
+        - win25cis_account_lockout_counter_reset > discovered_win25cis_current_lockout_duration | default(0) | int
+      ansible.builtin.import_tasks:
+        file: warning_facts.yml
+      vars:
+        warn_control_id: '1.2.4'
 
     - name: "1.2.4 | AUDIT | Ensure Reset account lockout counter after is set to 15 or more minutes | Verify variable set to 15 or more minutes warning"
       when:

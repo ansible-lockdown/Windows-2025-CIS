@@ -121,7 +121,7 @@
         data: "{{ win25cis_netbt_nodetype }}"
         datatype: dword
 
-    - name: "18.4.6 | AUDIT | Ensure 'NetBT NodeType configuration' is set to 'Enabled: P-node recommended' | Warning Message."
+    - name: "18.4.6 | AUDIT | Ensure 'NetBT NodeType configuration' is set to 'Enabled: P-node recommended' | Warning Message"
       when: win25cis_netbt_nodetype not in [1, 2, 4, 8]
       ansible.builtin.debug:
         msg:
@@ -129,11 +129,11 @@
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
     - name: "18.4.6 | AUDIT | Ensure 'NetBT NodeType configuration' is set to 'Enabled: P-node recommended' | Set warning count"
-      vars:
-        warn_control_id: '18.4.6'
       when: win25cis_netbt_nodetype not in [1, 2, 4, 8]
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '18.4.6'
 
 - name: "18.4.7 | PATCH | Ensure WDigest Authentication is set to Disabled"
   when: win25cis_rule_18_4_7

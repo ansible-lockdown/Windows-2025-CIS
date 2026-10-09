@@ -197,11 +197,11 @@
         msg: "Warning!! Invalid time set for win25cis_screen_saver_grace_period. Review the notes for compliance."
 
     - name: "18.5.9 | AUDIT | Ensure MSS ScreenSaverGracePeriod The time in seconds before the screen saver grace period expires is set to Enabled 5 or fewer seconds | Set warn control ID for non-compliance"
-      vars:
-        warn_control_id: '18.5.9'
       when: win25cis_screen_saver_grace_period > 5
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '18.5.9'
 
 - name: "18.5.10 | PATCH | Ensure MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted is set to Enabled: 3"
   when: win25cis_rule_18_5_10
@@ -285,8 +285,8 @@
           - "Please read the notes for the variable and make the necessary change to achieve compliance."
 
     - name: "18.5.12 | AUDIT | Ensure MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning is set to Enabled: 90% or less | Log a warning for non-compliance with control ID 18.5.12"
-      vars:
-        warn_control_id: '18.5.12'
       when: win25cis_log_threshold_audit_event > 90
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '18.5.12'

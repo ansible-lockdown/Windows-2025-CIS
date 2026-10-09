@@ -118,7 +118,7 @@
         data: "{{ win25cis_defer_feature_updates_period_in_days }}"
         type: dword
 
-    - name: "18.10.93.4.2 | AUDIT | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or more days' | Variable Warning."
+    - name: "18.10.93.4.2 | AUDIT | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or more days' | Variable Warning"
       when: win25cis_defer_feature_updates_period_in_days < 180
       ansible.builtin.debug:
         msg:
@@ -126,11 +126,11 @@
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
     - name: "18.10.93.4.2 | AUDIT | Ensure 'Select when Preview Builds and Feature Updates are received' is set to 'Enabled: 180 or more days' | Log a warning"
-      vars:
-        warn_control_id: '18.10.93.4.2'
       when: win25cis_defer_feature_updates_period_in_days < 180
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '18.10.93.4.2'
 
 - name: "18.10.93.4.3 | PATCH | Ensure Select when Quality Updates are received is set to Enabled 0 days"
   when: win25cis_rule_18_10_93_4_3

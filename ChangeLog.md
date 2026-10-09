@@ -1,8 +1,39 @@
 # ChangeLog
 
 ## CIS Benchmark v1.0.0
+## October 2026 Updates
+
+  - fix: 2.3.5.2 VulnerableChannelAllowList removed, not written as 0
+  - fix: 1.2.4 checked against the live lockout duration when 1.2.1 is off
+  - fix: check_mode false on the installation type and feature discovery reads
+  - style: fetch_audit_output.yml loop placed before register
+
+## CIS Benchmark v1.0.0
 ## September 2026 Updates - audit content
 
+  - fix: 18.9.19.7 removes DisableBkGndGroupPolicy from Policies\System
+  - fix: 18.9.26.2 RunAsPPL set under the policy key
+  - fix: 17 MS only controls applied on standalone servers
+  - fix: 5.2 Print Spooler applied on standalone servers
+  - fix: 2.3.6.x Domain member controls applied on domain controllers, as CIS scopes them
+  - fix: 2.3.5.4 warning names the GPO role as the way to make it hold
+  - style: task vars placed straight after the module in 54 tasks
+  - fix: post.yml warn_control_id scoped to the warning count task, not the whole block
+  - fix: NGWS controls gated on win25cis_ngws, default false
+  - fix: win25cis_ngws moved to defaults/main/main.yml
+  - docs: README - stand-alone servers and NGWS profile sections, target type counts
+  - docs: README - level1-domainmember dropped from the tag list; tag example uses 18.4.2, a real control
+  - style: trailing full stops removed from 121 task names
+  - fix: invented level1-domainmember tag removed from 2.3.6.x
+  - style: handler tags before the module
+  - style: loop_control labels removed from fetch_audit_output.yml
+  - fix: unused community.general collection dependency removed
+  - style: blank line after the document start in .pre-commit-config.yaml
+  - README tag example uses 18.4.3, was rule_18.3.3
+  - 2.2.31 sets the v2.1.0 value, adding RESTRICTED SERVICES\PrintSpoolerService
+  - README deviations section covers 2.2.31
+  - 39 registers renamed to the discovered_ prefix
+  - duplicate spooler_service_info register split per control
   - fixed to new vars for section 5
   - removed incorrect setting in compliance template
   - tidy up audit pulling in more than once
@@ -44,6 +75,8 @@
   - moved reading user hive fromPerlim to section19/main.yml to minimise potential unload hive issue
   - NIST800-53 task tags removed, NIST800-53R5 and NIST800-171 kept
   - README tagging example shows NIST800-53R5 only
+  - Clear up confusion in GPO wording (this is currently WIP)
+  - fix: removed private workflow
 
 ## September 2026 Updates - GPO creation removed
 

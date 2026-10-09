@@ -22,6 +22,10 @@
   tags: always
   block:
     - name: AUDIT | Obtain Current Interactive User Hives | Retrieve live domain user SIDs from HKEY_USERS
+      ansible.windows.win_shell: "{{ hku_script }}"
+      changed_when: false
+      check_mode: false
+      register: discovered_current_users_loaded_hku
       vars:
         hku_script: |
           $users = (Get-ChildItem 'REGISTRY::HKEY_USERS').Name
@@ -31,10 +35,6 @@
             $_ -notmatch 'S-1-5-18|S-1-5-19|S-1-5-20' -and
             $_ -notmatch 'S-1-5-80-'
           } | ForEach-Object { $_ -replace 'HKEY_USERS\\', '' }
-      ansible.windows.win_shell: "{{ hku_script }}"
-      changed_when: false
-      check_mode: false
-      register: discovered_current_users_loaded_hku
 
     - name: AUDIT | Obtain Current Interactive User Hives | Set list fact for live user SIDs
       ansible.builtin.set_fact:

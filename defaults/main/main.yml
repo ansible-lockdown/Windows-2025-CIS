@@ -30,6 +30,14 @@ win25cis_section18: true
 # Section 19 Administrative Templates (User)
 win25cis_section19: true
 
+# Next Generation Windows Security (NGWS) is an optional CIS profile, not a third
+# level. It gates its eight controls (18.9.5.x Device Guard and Credential Guard,
+# 18.9.26.2 LSA protection) in the role and in the audit, so with it false neither
+# applies nor asserts them. They need virtualization based security support, so
+# enable it deliberately.
+# Default: false
+win25cis_ngws: false
+
 # Changes will be made that will require a system reboot.
 # The following option will allow whether or not to skip the reboot.
 # Default: true

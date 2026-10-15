@@ -37,7 +37,7 @@
         data: "{{ win25cis_consent_prompt_behavior_admin }}"
         type: dword
 
-    - name: "2.3.17.2 | AUDIT | Ensure User Account Control Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop or higher. | Warning Check For Variable."
+    - name: "2.3.17.2 | AUDIT | Ensure User Account Control Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop or higher | Warning Check For Variable"
       when:
         - win25cis_consent_prompt_behavior_admin == 0 or
           win25cis_consent_prompt_behavior_admin > 2
@@ -46,14 +46,14 @@
           - "Warning!! You have an invalid variable set for win25cis_consent_prompt_behavior_admin. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.17.2 | AUDIT | Ensure User Account Control Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop or higher. | Warn Count."
-      vars:
-        warn_control_id: '2.3.17.2'
+    - name: "2.3.17.2 | AUDIT | Ensure User Account Control Behavior of the elevation prompt for administrators in Admin Approval Mode' is set to 'Prompt for consent on the secure desktop or higher | Warn Count"
       when:
         - win25cis_consent_prompt_behavior_admin == 0 or
           win25cis_consent_prompt_behavior_admin > 2
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.17.2'
 
 - name: "2.3.17.3 | PATCH | Ensure User Account Control Behavior of the elevation prompt for standard users is set to Automatically deny elevation requests"
   when: win25cis_rule_2_3_17_3

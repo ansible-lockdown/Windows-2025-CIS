@@ -161,12 +161,10 @@ win25cis_ansible_facts_path: 'C:\ProgramData\ansible\facts.d'
 #### Audit selection ####
 ## These select what the AUDIT checks. The role itself selects level by --tags,
 ## so setting level_2 false here does not stop the role applying level 2
-## controls - it stops the audit asserting them.
+## controls - it stops the audit asserting them. The NGWS profile toggle,
+## win25cis_ngws, gates the role as well and is in defaults/main/main.yml.
 win25cis_level_1: true
 win25cis_level_2: true
-## Next Generation Windows Security is a separate opt-in profile, not a third
-## level, so it defaults off. Eight controls are gated on it.
-win25cis_ngws: false
 
 ## Which CIS profile applies. A host is either a domain controller or it is not,
 ## so this is one value rather than a pair of booleans that can disagree.

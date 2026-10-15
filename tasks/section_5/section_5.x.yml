@@ -16,11 +16,11 @@
     - NIST800-53R5_CM-7
   notify: Change_Requires_Reboot
   block:
-    - name: "5.1 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Domain Controller | Check to see if Spooler service exists."
+    - name: "5.1 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Domain Controller | Check to see if Spooler service exists"
       ansible.windows.win_service_info:
         name: Spooler
       check_mode: false
-      register: spooler_service_info
+      register: discovered_5_1_spooler_service_info
 
     - name: "5.1 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Domain Controller | RegEdit"
       ansible.windows.win_regedit:
@@ -30,7 +30,7 @@
         type: dword
 
     - name: "5.1 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Domain Controller | Service"
-      when: spooler_service_info.exists
+      when: discovered_5_1_spooler_service_info.exists
       ansible.windows.win_service:
         name: Spooler
         start_mode: disabled
@@ -40,7 +40,6 @@
   when:
     - win25cis_rule_5_2
     - not prelim_win25cis_is_domain_controller
-    - not prelim_win25cis_is_standalone
   tags:
     - level2-memberserver
     - rule_5.2
@@ -53,11 +52,11 @@
     - NIST800-53R5_CM-7
   notify: Change_Requires_Reboot
   block:
-    - name: "5.2 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Member Server | Check to see if Spooler service exists."
+    - name: "5.2 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Member Server | Check to see if Spooler service exists"
       ansible.windows.win_service_info:
         name: Spooler
       check_mode: false
-      register: spooler_service_info
+      register: discovered_5_2_spooler_service_info
 
     - name: "5.2 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Member Server | RegEdit"
       ansible.windows.win_regedit:
@@ -67,7 +66,7 @@
         type: dword
 
     - name: "5.2 | PATCH | Ensure Print Spooler (Spooler) is set to Disabled Member Server | Service"
-      when: spooler_service_info.exists
+      when: discovered_5_2_spooler_service_info.exists
       ansible.windows.win_service:
         name: Spooler
         start_mode: disabled

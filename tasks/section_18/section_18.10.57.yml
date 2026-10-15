@@ -298,7 +298,7 @@
     - NIST800-171_3.1.10
     - NIST800-53R5_AC-11
   block:
-    - name: "18.10.57.3.10.1 | PATCH | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Set Variable."
+    - name: "18.10.57.3.10.1 | PATCH | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Set Variable"
       when:
         - win25cis_idle_rdp_session_disconnect_time > 0
         - win25cis_idle_rdp_session_disconnect_time <= 900000
@@ -308,7 +308,7 @@
         data: "{{ win25cis_idle_rdp_session_disconnect_time }}"
         type: dword
 
-    - name: "18.10.57.3.10.1 | AUDIT | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Warning Check For Variable Standards."
+    - name: "18.10.57.3.10.1 | AUDIT | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Warning Check For Variable Standards"
       when:
         - win25cis_idle_rdp_session_disconnect_time == 0 or
           win25cis_idle_rdp_session_disconnect_time > 900000
@@ -318,13 +318,13 @@
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
     - name: "18.10.57.3.10.1 | AUDIT | Ensure 'Set time limit for active but idle Remote Desktop Services sessions' is set to 'Enabled: 15 minutes or less, but not Never (0) | Log a warning"
-      vars:
-        warn_control_id: '18.10.57.3.10.1'
       when:
         - win25cis_idle_rdp_session_disconnect_time == 0 or
           win25cis_idle_rdp_session_disconnect_time > 900000
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '18.10.57.3.10.1'
 
 - name: "18.10.57.3.10.2 | PATCH | Ensure Set time limit for disconnected sessions is set to Enabled 1 minute"
   when: win25cis_rule_18_10_57_3_10_2

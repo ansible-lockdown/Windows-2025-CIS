@@ -52,13 +52,13 @@
           - "database for domain accounts, so a secedit write here would change nothing."
 
     - name: PRELIM | Account Policy Scope | Set warning count
-      vars:
-        warn_control_id: 'Section 1 - domain scoped'
       when:
         - win25cis_section01
         - prelim_win25cis_account_policy_is_domain_scoped
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: 'Section 1 - domain scoped'
 
     - name: PRELIM | Account Policy Scope | Warn that 2.3.11.6 is set at the domain
       when:
@@ -73,14 +73,14 @@
           - "every run. 2.3.11.6 is therefore skipped on this host. Set it in the Default Domain Policy."
 
     - name: PRELIM | Account Policy Scope | Set 2.3.11.6 warning count
-      vars:
-        warn_control_id: '2.3.11.6 - domain scoped'
       when:
         - win25cis_section02
         - win25cis_rule_2_3_11_6
         - prelim_win25cis_account_policy_is_domain_scoped
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.11.6 - domain scoped'
 
 - name: "PRELIM | Optional Feature Discovery"
   block:
@@ -88,18 +88,21 @@
       when: win25cis_rule_2_2_19
       ansible.windows.win_feature_info:
         name: Hyper-V
+      check_mode: false
       register: prelim_win25cis_hyperv_feature
 
     - name: "PRELIM | Optional Feature Discovery | Is The Web Server IIS Role Installed"
       when: win25cis_rule_2_2_33
       ansible.windows.win_feature_info:
         name: Web-Server
+      check_mode: false
       register: prelim_win25cis_webserver_feature
 
     - name: "PRELIM | Optional Feature Discovery | Is Exchange Server Installed"
       when: win25cis_rule_2_2_38
       ansible.windows.win_service_info:
         name: MSExchangeServiceHost
+      check_mode: false
       register: prelim_win25cis_exchange_service
 
     - name: "PRELIM | Optional Feature Discovery | Set The Feature Facts"

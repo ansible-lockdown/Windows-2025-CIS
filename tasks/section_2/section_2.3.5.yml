@@ -32,8 +32,7 @@
   ansible.windows.win_regedit:
     path: HKLM:\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
     name: VulnerableChannelAllowList
-    data: 0
-    type: dword
+    state: absent
 
 - name: "2.3.5.3 | PATCH | Ensure Domain controller LDAP server channel binding token requirements is set to Always DC only | Domain Controller"
   when:
@@ -90,13 +89,14 @@
           - "This registry write applies, and is then reverted at the next policy refresh"
           - "(every 5 minutes by default on a DC, and at every reboot). Host proven: the value"
           - "goes 1 -> 2 on write and back to 1 after gpupdate /force. To make 2.3.5.4 hold,"
-          - "set it in the Default Domain Controllers Policy."
+          - "set it in the Default Domain Controllers Policy, or apply it with the"
+          - "Private-Windows-2025-CIS-GPO role."
 
     - name: "2.3.5.4 | AUDIT | Ensure Domain controller LDAP server signing requirements is set to Require signing DC only | Domain Controller | Set warning count"
-      vars:
-        warn_control_id: '2.3.5.4'
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.5.4'
 
 - name: "2.3.5.5 | PATCH | Ensure Domain controller LDAP server signing requirements Enforcement is set to Enabled | Domain Controller"
   when:

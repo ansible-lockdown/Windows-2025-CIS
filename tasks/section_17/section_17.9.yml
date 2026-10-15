@@ -20,14 +20,14 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_9_1_audit
+      register: discovered_17_9_1_audit
 
     - name: "17.9.1 | PATCH | Ensure Audit IPsec Driver is set to Success and Failure | Enable Success for IPsec Driver"
-      when: "'Success' not in rule_17_9_1_audit.stdout"
+      when: "'Success' not in discovered_17_9_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9213-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.9.1 | PATCH | Ensure Audit IPsec Driver is set to Success and Failure | Enable Failure for IPsec Driver"
-      when: "'Failure' not in rule_17_9_1_audit.stdout"
+      when: "'Failure' not in discovered_17_9_1_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9213-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.9.2 | PATCH | Ensure Audit Other System Events is set to Success and Failure"
@@ -50,14 +50,14 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_9_2_audit
+      register: discovered_17_9_2_audit
 
     - name: "17.9.2 | PATCH | Ensure Audit Other System Events is set to Success and Failure | Enable Success for Other System Events"
-      when: "'Success' not in rule_17_9_2_audit.stdout"
+      when: "'Success' not in discovered_17_9_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9214-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.9.2 | PATCH | Ensure Audit Other System Events is set to Success and Failure | Enable Failure for Other System Events"
-      when: "'Failure' not in rule_17_9_2_audit.stdout"
+      when: "'Failure' not in discovered_17_9_2_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9214-69ae-11d9-bed3-505054503030}" /failure:enable
 
 - name: "17.9.3 | PATCH | Ensure Audit Security State Change is set to include Success"
@@ -80,10 +80,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_9_3_audit
+      register: discovered_17_9_3_audit
 
     - name: "17.9.3 | PATCH | Ensure Audit Security State Change is set to include Success | Enable Success for Security State Change"
-      when: "'Success' not in rule_17_9_3_audit.stdout"
+      when: "'Success' not in discovered_17_9_3_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9210-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.9.4 | PATCH | Ensure Audit Security System Extension is set to include Success"
@@ -106,10 +106,10 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_9_4_audit
+      register: discovered_17_9_4_audit
 
     - name: "17.9.4 | PATCH | Ensure Audit Security System Extension is set to include Success | Enable Success for Security System Extension"
-      when: "'Success' not in rule_17_9_4_audit.stdout"
+      when: "'Success' not in discovered_17_9_4_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9211-69ae-11d9-bed3-505054503030}" /success:enable
 
 - name: "17.9.5 | PATCH | Ensure Audit System Integrity is set to Success and Failure"
@@ -132,12 +132,12 @@
       changed_when: false
       failed_when: false
       check_mode: false
-      register: rule_17_9_5_audit
+      register: discovered_17_9_5_audit
 
     - name: "17.9.5 | PATCH | Ensure Audit System Integrity is set to Success and Failure | Enable Success for System Integrity"
-      when: "'Success' not in rule_17_9_5_audit.stdout"
+      when: "'Success' not in discovered_17_9_5_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9212-69ae-11d9-bed3-505054503030}" /success:enable
 
     - name: "17.9.5 | PATCH | Ensure Audit System Integrity is set to Success and Failure | Enable Failure for System Integrity"
-      when: "'Failure' not in rule_17_9_5_audit.stdout"
+      when: "'Failure' not in discovered_17_9_5_audit.stdout"
       ansible.windows.win_shell: AuditPol /set /subcategory:"{0cce9212-69ae-11d9-bed3-505054503030}" /failure:enable

@@ -152,7 +152,7 @@
     data: 5
     type: dword
 
-- name: "2.3.11.8 | PATCH | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher."
+- name: "2.3.11.8 | PATCH | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher"
   when: win25cis_rule_2_3_11_8
   tags:
     - level1-domaincontroller
@@ -169,7 +169,7 @@
     - NIST800-53R5_SC-8
     - NIST800-53R5_SC-8_1
   block:
-    - name: "2.3.11.8 | PATCH | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher. | Apply Variable To Registry."
+    - name: "2.3.11.8 | PATCH | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher | Apply Variable To Registry"
       when:
         - win25cis_ldap_client_confidentiality == 1 or
           win25cis_ldap_client_confidentiality == 2
@@ -179,7 +179,7 @@
         data: "{{ win25cis_ldap_client_confidentiality }}"
         type: dword
 
-    - name: "2.3.11.8 | AUDIT | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher. | Warning Check For Variable."
+    - name: "2.3.11.8 | AUDIT | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher | Warning Check For Variable"
       when:
         - win25cis_ldap_client_confidentiality == 0 or
           win25cis_ldap_client_confidentiality > 2
@@ -188,16 +188,16 @@
           - "Warning!! You have an invalid variable set for win25cis_ldap_client_confidentiality. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.11.8 | AUDIT | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher. | Warn Count."
-      vars:
-        warn_control_id: '2.3.11.8'
+    - name: "2.3.11.8 | AUDIT | Ensure 'Network security: LDAP client encryption requirements' is set to 'Negotiate sealing' or higher | Warn Count"
       when:
         - win25cis_ldap_client_confidentiality == 0 or
           win25cis_ldap_client_confidentiality > 2
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.11.8'
 
-- name: "2.3.11.9 | PATCH | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher."
+- name: "2.3.11.9 | PATCH | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher"
   when: win25cis_rule_2_3_11_9
   tags:
     - level1-domaincontroller
@@ -214,7 +214,7 @@
     - NIST800-53R5_SC-8
     - NIST800-53R5_SC-8_1
   block:
-    - name: "2.3.11.9 | PATCH | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher. | Apply Variable To Registry."
+    - name: "2.3.11.9 | PATCH | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher | Apply Variable To Registry"
       when:
         - win25cis_ldap_client_integrity == 1 or
           win25cis_ldap_client_integrity == 2
@@ -224,7 +224,7 @@
         data: "{{ win25cis_ldap_client_integrity }}"
         type: dword
 
-    - name: "2.3.11.9 | AUDIT | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher. | Warning Check For Variable."
+    - name: "2.3.11.9 | AUDIT | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher | Warning Check For Variable"
       when:
         - win25cis_ldap_client_integrity == 0 or
           win25cis_ldap_client_integrity > 2
@@ -233,14 +233,14 @@
           - "Warning!! You have an invalid variable set for win25cis_ldap_client_integrity. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.11.9 | AUDIT | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher. | Warn Count."
-      vars:
-        warn_control_id: '2.3.11.9'
+    - name: "2.3.11.9 | AUDIT | Ensure Network security LDAP client signing requirements is set to Negotiate signing or higher | Warn Count"
       when:
         - win25cis_ldap_client_integrity == 0 or
           win25cis_ldap_client_integrity > 2
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.11.9'
 
 - name: "2.3.11.10 | PATCH | Ensure Network security Minimum session security for NTLM SSP based including secure RPC clients is set to Require NTLMv2 session security Require 128-bit encryption"
   when: win25cis_rule_2_3_11_10
@@ -329,7 +329,7 @@
     data: 7
     type: dword
 
-- name: "2.3.11.14 | PATCH | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher."
+- name: "2.3.11.14 | PATCH | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher"
   when: win25cis_rule_2_3_11_14
   tags:
     - level1-domaincontroller
@@ -345,7 +345,7 @@
     - NIST800-53R5_AU-7
     - NIST800-53R5_AU-12
   block:
-    - name: "2.3.11.14 | PATCH | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher. | Apply Variable To Registry."
+    - name: "2.3.11.14 | PATCH | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher | Apply Variable To Registry"
       when:
         - win25cis_restrict_sending_ntlm_traffic == 1 or
           win25cis_restrict_sending_ntlm_traffic == 2
@@ -355,7 +355,7 @@
         data: "{{ win25cis_restrict_sending_ntlm_traffic }}"
         type: dword
 
-    - name: "2.3.11.14 | AUDIT | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher. | Warning Check For Variable."
+    - name: "2.3.11.14 | AUDIT | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher | Warning Check For Variable"
       when:
         - win25cis_restrict_sending_ntlm_traffic == 0 or
           win25cis_restrict_sending_ntlm_traffic > 2
@@ -364,11 +364,11 @@
           - "Warning!! You have an invalid variable set for win25cis_restrict_sending_ntlm_traffic. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.11.14 | AUDIT | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher. | Warn Count."
-      vars:
-        warn_control_id: '2.3.11.14'
+    - name: "2.3.11.14 | AUDIT | Ensure Network security: Restrict NTLM: Outgoing NTLM traffic to remote servers is set to Audit all or higher | Warn Count"
       when:
         - win25cis_restrict_sending_ntlm_traffic == 0 or
           win25cis_restrict_sending_ntlm_traffic > 2
       ansible.builtin.import_tasks:
         file: warning_facts.yml
+      vars:
+        warn_control_id: '2.3.11.14'

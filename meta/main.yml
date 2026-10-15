@@ -49,5 +49,4 @@ galaxy_info:
 collections:
   - ansible.windows
   - community.windows
-  - community.general
 dependencies: []

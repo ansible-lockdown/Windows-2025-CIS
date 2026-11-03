@@ -6,6 +6,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.1
     - patch
     - scheduledtasks
@@ -17,13 +18,13 @@
     data: 0
     type: dword
 
-# Per CIS Note: If this policy is set as prescribed, the registry key vulnerablechannelallowlist will not be present in the above registry location.
 - name: "2.3.5.2 | PATCH | Ensure Domain controller Allow vulnerable Netlogon secure channel connections is set to Not Configured DC only | Domain Controller"
   when:
     - win25cis_rule_2_3_5_2
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.2
     - patch
     - logon
@@ -40,6 +41,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.3
     - patch
     - ldap
@@ -63,6 +65,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.4
     - patch
     - ldap
@@ -89,8 +92,7 @@
           - "This registry write applies, and is then reverted at the next policy refresh"
           - "(every 5 minutes by default on a DC, and at every reboot). Host proven: the value"
           - "goes 1 -> 2 on write and back to 1 after gpupdate /force. To make 2.3.5.4 hold,"
-          - "set it in the Default Domain Controllers Policy, or apply it with the"
-          - "Private-Windows-2025-CIS-GPO role."
+          - "set it in the Default Domain Controllers Policy."
 
     - name: "2.3.5.4 | AUDIT | Ensure Domain controller LDAP server signing requirements is set to Require signing DC only | Domain Controller | Set warning count"
       ansible.builtin.import_tasks:
@@ -98,12 +100,13 @@
       vars:
         warn_control_id: '2.3.5.4'
 
-- name: "2.3.5.5 | PATCH | Ensure Domain controller LDAP server signing requirements Enforcement is set to Enabled | Domain Controller"
+- name: "2.3.5.5 | PATCH | Ensure Domain controller LDAP server signing requirements Enforcement is set to Enabled DC only | Domain Controller"
   when:
     - win25cis_rule_2_3_5_5
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.5
     - patch
     - ldap
@@ -127,6 +130,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.5.6
     - patch
     - account

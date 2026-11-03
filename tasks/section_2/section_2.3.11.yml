@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.1
     - patch
     - ntlm
@@ -20,6 +21,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.2
     - patch
     - localsystem
@@ -36,6 +38,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.3
     - patch
     - authentication
@@ -66,6 +69,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.4
     - patch
     - encryption
@@ -99,6 +103,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.5
     - patch
     - network
@@ -120,6 +125,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - manual
     - rule_2.3.11.6
     - patch
     - network
@@ -135,6 +141,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.7
     - patch
     - network
@@ -157,6 +164,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.8
     - patch
     - ldap
@@ -202,6 +210,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.9
     - patch
     - ldap
@@ -247,6 +256,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.10
     - patch
     - ntlm
@@ -269,6 +279,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.11
     - patch
     - ntlm
@@ -291,6 +302,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.12
     - patch
     - ntlm
@@ -313,6 +325,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.3.11.13
     - patch
     - ntlm
@@ -334,6 +347,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.11.14
     - patch
     - ntlm

@@ -660,6 +660,17 @@ win25cis_account_lockout_counter_reset: 15
 # Discovered in prelim with win_feature_info; not set here, so a value given in
 # inventory would be overwritten by the discovered one.
 
+# 2.2.31
+# win25cis_iis_and_web_services_installed and win25cis_adfs_installed are whether the Web Server (IIS)
+# and Active Directory Federation Services roles are installed. Discovered in prelim with
+# win_feature_info; not set here.
+# CIS notes 2 and 3 say IIS application pools and the ADFS service accounts (NT SERVICE\ADFSSrv,
+# NT SERVICE\DRS and the ADFS service account) need Generate security audits, so on those hosts
+# 2.2.31 is skipped with a warning and the audit reports it as skipped.
+# Setting win25cis_apply_generate_security_audits_on_iis_adfs to true applies the baseline on those
+# hosts anyway, which removes those accounts from the right.
+win25cis_apply_generate_security_audits_on_iis_adfs: false
+
 # 2.2.33
 # win25cis_iis_and_web_services_installed allows the Ansible to properly configure the member server with
 # IIS_IUSRS' (MS only) (when the Web Server (IIS) Role with Web Services Role Service is installed)'

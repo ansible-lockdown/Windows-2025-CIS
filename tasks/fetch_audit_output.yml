@@ -1,7 +1,5 @@
 ---
 
-# Stage to copy audit output to a centralised location
-
 - name: "POST | FETCH | Fetch files and copy to controller"
   when: audit_output_collection_method == 'fetch'
   ansible.builtin.fetch:
@@ -15,8 +13,6 @@
   failed_when: false
   register: discovered_audit_fetch_state
 
-# Copies to another location on the managed node itself, so audit_output_destination
-# must be a Windows path when this method is chosen.
 - name: "POST | FETCH | Copy files to location available to managed node"
   when: audit_output_collection_method == 'copy'
   ansible.windows.win_copy:

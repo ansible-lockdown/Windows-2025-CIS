@@ -86,6 +86,7 @@ To use release version please point to main branch and relevant release for the 
 - **2.2.31 Generate security audits** is set to `LOCAL SERVICE, NETWORK SERVICE, RESTRICTED SERVICES\PrintSpoolerService`, not the v1.0.0 value of `LOCAL SERVICE, NETWORK SERVICE`.
   The Print Spooler service grants this right to its own account every time it starts, so the v1.0.0 value only holds until the next service start or reboot. The role would report a change on every run and the audit would fail on any host where the spooler runs.
   CIS corrected the recommendation in v2.1.0 (control 2.2.30); this role applies that value. The audit asserts the same three accounts.
+  On a host with IIS or ADFS installed, CIS notes 2 and 3 require an exception so that IIS application pools and the ADFS service accounts keep this right. The role detects both in prelim and skips 2.2.31 there with a warning, and the audit reports it as skipped. Set `win25cis_apply_generate_security_audits_on_iis_adfs: true` to apply the baseline on those hosts anyway.
 
 ---
 
@@ -158,7 +159,7 @@ the per rule toggles - a default run enforces:
 
 | Target | Enforced by this role | Skipped: not applicable to this target | Skipped: NGWS profile off | Skipped: externally managed |
 |---|---|---|---|---|
-| Standalone server | 406 | 49 | 7 | 0 |
+| Standalone server | 412 | 43 | 7 | 0 |
 | Domain member server | 413 | 31 | 7 | 11 |
 | Domain controller | 409 | 36 | 7 | 10 |
 
@@ -179,8 +180,8 @@ for domain accounts, and on a member server the Default Domain Policy overwrites
 local value at the next Group Policy refresh. A local `secedit` write is not a
 partial fix on either - it is a no-op that reports `changed`.
 
-There is one remediation path for these, and it is the Default Domain Policy. The
-`Windows-2025-CIS-GPO` role authors it - see [Group Policy Objects](#group-policy-objects).
+There is one remediation path for these, and it is the Default Domain Policy - see
+[Group Policy Objects](#group-policy-objects).
 A clean run of this role against a domain controller is not evidence that those ten
 controls are enforced; it reports them as skipped, with the reason, and the audit
 does the same.
@@ -215,17 +216,20 @@ their own.
 
 The benchmark is written for domain joined servers and says it is not intended for
 standalone or workgroup systems. This role still runs on one, and treats it as a member
-server wherever that is safe: 18 of the member server (MS only) controls apply to any
+server wherever that is safe: 24 of the member server (MS only) controls apply to any
 server that is not a domain controller.
 
 The rest stay member server only:
 
-- 2.2.22, 2.2.27 and 18.4.1 deny or filter network and Remote Desktop logon for local
-  accounts. On a standalone server every account is local, so applying them cuts off
-  remote administration - the benchmark carries that caution.
-- LAPS (18.9.25.x), the Netlogon secure channel (2.3.6.1, 2.3.6.2), cached domain logons
-  (2.3.7.6), domain controller unlock (2.3.7.8), 2.3.9.5, 18.6.21.2 and 18.9.28.4 need a
-  domain to mean anything.
+- 2.2.22 and 2.2.27 deny network and Remote Desktop logon for local accounts. On a
+  standalone server every account is local, so applying them cuts off remote
+  administration - the benchmark carries that caution.
+- LAPS (18.9.25.x) and the Netlogon secure channel (2.3.6.1, 2.3.6.2) need a domain to
+  mean anything.
+
+Cached domain logons (2.3.7.6), domain controller unlock (2.3.7.8) and 18.6.21.2 and
+18.9.28.4 also only act on a domain, but they are valid local policy, so they are set on
+a standalone server too and its local policy reads as compliant.
 
 Section 1 account policy is applied on a standalone server only; on a domain member the
 Default Domain Policy owns it.

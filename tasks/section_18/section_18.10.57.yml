@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.2.2
     - patch
     - terminalservices
@@ -24,6 +25,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.2.1
     - patch
     - terminalservices
@@ -43,6 +45,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.1
     - patch
     - terminalservices
@@ -62,6 +65,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.2
     - patch
     - terminalservices
@@ -81,6 +85,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.3.3
     - patch
     - terminalservices
@@ -100,6 +105,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.4
     - patch
     - terminalservices
@@ -119,6 +125,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.5
     - patch
     - terminalservices
@@ -138,6 +145,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.6
     - patch
     - terminalservices
@@ -155,6 +163,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.7
     - patch
     - terminalservices
@@ -174,6 +183,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.3.8
     - patch
     - remote-desktop
@@ -191,6 +201,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.9.1
     - patch
     - terminalservices
@@ -210,6 +221,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.9.2
     - patch
     - terminalservices
@@ -226,6 +238,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.9.3
     - patch
     - terminalservices
@@ -248,6 +261,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.9.4
     - patch
     - terminalservices
@@ -270,6 +284,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.9.5
     - patch
     - terminalservices
@@ -292,6 +307,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.10.1
     - patch
     - terminalservices
@@ -331,6 +347,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.10.57.3.10.2
     - patch
     - terminalservices
@@ -347,6 +364,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.11.1
     - patch
     - terminalservices
@@ -363,6 +381,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.57.3.11.2
     - patch
     - terminalservices

@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.1
     - patch
     - userrights
@@ -29,6 +30,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.2
     - patch
     - userrights
@@ -57,6 +59,7 @@
     - not (win_skip_for_test | bool)
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.3
     - patch
     - userrights
@@ -82,6 +85,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.4
     - patch
     - userrights
@@ -106,6 +110,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.5
     - patch
     - userrights
@@ -129,6 +134,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.6
     - patch
     - userrights
@@ -156,6 +162,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.7
     - patch
     - userrights
@@ -182,6 +189,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.8
     - patch
     - userrights
@@ -207,6 +215,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.9
     - patch
     - userrights
@@ -233,6 +242,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.10
     - patch
     - userrights
@@ -259,6 +269,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.11
     - patch
     - userrights
@@ -283,6 +294,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.12
     - patch
     - NIST800-171_3.1.1
@@ -307,6 +319,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.13
     - patch
     - userrights
@@ -332,6 +345,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.14
     - patch
     - userrights
@@ -356,6 +370,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.15
     - patch
     - userrights
@@ -379,6 +394,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.16
     - patch
     - userrights
@@ -406,6 +422,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.17
     - patch
     - userrights
@@ -430,6 +447,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.18
     - patch
     - userrights
@@ -455,6 +473,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.19
     - patch
     - userrights
@@ -491,6 +510,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.20
     - patch
     - userrights
@@ -516,6 +536,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.21
     - patch
     - userrights
@@ -542,6 +563,7 @@
     - not (win_skip_for_test | bool)
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.22
     - patch
     - userrights
@@ -567,6 +589,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.23
     - patch
     - userrights
@@ -591,6 +614,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.24
     - patch
     - userrights
@@ -615,6 +639,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.25
     - patch
     - userrights
@@ -641,6 +666,7 @@
     - not (win_skip_for_test | bool)
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.26
     - patch
     - guest
@@ -667,6 +693,7 @@
     - not (win_skip_for_test | bool)
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.27
     - patch
     - guest
@@ -693,6 +720,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.28
     - patch
     - userrights
@@ -718,6 +746,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.29
     - patch
     - userrights
@@ -741,6 +770,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.30
     - patch
     - userrights
@@ -766,6 +796,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.31
     - patch
     - userrights
@@ -808,7 +839,9 @@
       register: discovered_2_2_31_current
 
     - name: "2.2.31 | PATCH | Set Generate security audits to LOCAL SERVICE, NETWORK SERVICE, RESTRICTED SERVICES PrintSpoolerService"
-      when: discovered_2_2_31_current.stdout | trim != 'S-1-5-19,S-1-5-20,S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229'
+      when:
+        - not (win25cis_iis_and_web_services_installed or win25cis_adfs_installed) or win25cis_apply_generate_security_audits_on_iis_adfs
+        - discovered_2_2_31_current.stdout | trim != 'S-1-5-19,S-1-5-20,S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229'
       ansible.windows.win_user_right:
         name: SeAuditPrivilege
         users:
@@ -817,12 +850,32 @@
           - S-1-5-99-216390572-1995538116-3857911515-2404958512-2623887229
         action: set
 
+    - name: "2.2.31 | AUDIT | Ensure Generate security audits is set to LOCAL SERVICE, NETWORK SERVICE | IIS or ADFS installed warning"
+      when:
+        - win25cis_iis_and_web_services_installed or win25cis_adfs_installed
+        - not win25cis_apply_generate_security_audits_on_iis_adfs
+      ansible.builtin.debug:
+        msg:
+          - "Warning!! IIS or ADFS is installed on this host. CIS notes 2 and 3 for 2.2.31 require an exception so that IIS"
+          - "application pools and the ADFS service accounts keep Generate security audits, so 2.2.31 is skipped on this host."
+          - "Grant the exception manually, or set win25cis_apply_generate_security_audits_on_iis_adfs to true to apply the baseline anyway."
+
+    - name: "2.2.31 | AUDIT | Ensure Generate security audits is set to LOCAL SERVICE, NETWORK SERVICE | Set warning count"
+      when:
+        - win25cis_iis_and_web_services_installed or win25cis_adfs_installed
+        - not win25cis_apply_generate_security_audits_on_iis_adfs
+      ansible.builtin.import_tasks:
+        file: warning_facts.yml
+      vars:
+        warn_control_id: '2.2.31'
+
 - name: "2.2.32 | PATCH | Ensure Impersonate a client after authentication is set to Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE DC only | Domain Controller"
   when:
     - win25cis_rule_2_2_32
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.32
     - patch
     - userrights
@@ -853,6 +906,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.33
     - patch
     - userrights
@@ -869,7 +923,7 @@
     - NIST800-53R5_AC-6_7
     - NIST800-53R5_AU-9_4
   block:
-    - name: "2.2.33 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE, NETWORK SERVICE, SERVICE and when the Web Server IIS Role with Web Services Role Service is installed IIS IUSRS MS only"
+    - name: "2.2.33 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE, NETWORK SERVICE, SERVICE and when the Web Server IIS Role with Web Services Role Service is installed IIS IUSRS MS only | IIS not installed"
       when: not win25cis_iis_and_web_services_installed
       ansible.windows.win_user_right:
         name: SeImpersonatePrivilege
@@ -880,7 +934,7 @@
           - SERVICE
         action: set
 
-    - name: "2.2.33 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE, NETWORK SERVICE, SERVICE and when the Web Server IIS Role with Web Services Role Service is installed IIS IUSRS MS only"
+    - name: "2.2.33 | PATCH | Ensure Impersonate a client after authentication is set to Administrators LOCAL SERVICE, NETWORK SERVICE, SERVICE and when the Web Server IIS Role with Web Services Role Service is installed IIS IUSRS MS only | IIS installed"
       when: win25cis_iis_and_web_services_installed
       ansible.windows.win_user_right:
         name: SeImpersonatePrivilege
@@ -897,6 +951,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.34
     - patch
     - userrights
@@ -920,6 +975,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.35
     - patch
     - userrights
@@ -944,6 +1000,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.36
     - patch
     - userrights
@@ -968,6 +1025,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level2-domaincontroller
+    - automated
     - rule_2.2.37
     - patch
     - userrights
@@ -987,12 +1045,13 @@
     users: Administrators
     action: set
 
-- name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators | Domain Controller"
+- name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators DC only | Domain Controller"
   when:
     - win25cis_rule_2_2_38
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.38
     - patch
     - userrights
@@ -1008,7 +1067,7 @@
     - NIST800-53R5_AC-6_7
     - NIST800-53R5_AU-9_4
   block:
-    - name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators | Domain Controller"
+    - name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators DC only | No Exchange Server | Domain Controller"
       when: not win25cis_exchange_server_running
       ansible.windows.win_user_right:
         name: SeSecurityPrivilege
@@ -1016,7 +1075,7 @@
           - Administrators
         action: set
 
-    - name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators | Set Exchange Server Groups | Domain Controller"
+    - name: "2.2.38 | PATCH | Ensure 'Manage auditing and security log' is set to Administrators DC only | Set Exchange Server Groups | Domain Controller"
       when: win25cis_exchange_server_running
       ansible.windows.win_user_right:
         name: SeSecurityPrivilege
@@ -1031,6 +1090,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.2.39
     - patch
     - userrights
@@ -1056,6 +1116,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.40
     - patch
     - userrights
@@ -1079,6 +1140,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.41
     - patch
     - userrights
@@ -1104,6 +1166,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.42
     - patch
     - userrights
@@ -1129,6 +1192,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.43
     - patch
     - userrights
@@ -1154,6 +1218,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.44
     - patch
     - userrights
@@ -1181,6 +1246,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.45
     - patch
     - userrights
@@ -1207,6 +1273,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.46
     - patch
     - userright
@@ -1232,6 +1299,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.47
     - patch
     - userright
@@ -1258,6 +1326,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_2.2.48
     - patch
     - userright
@@ -1281,6 +1350,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.2.49
     - patch
     - userright

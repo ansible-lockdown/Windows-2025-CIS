@@ -6,6 +6,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_17.4.1
     - patch
     - NIST800-171_3.3.1
@@ -33,6 +34,7 @@
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_17.4.2
     - patch
     - NIST800-171_3.3.1

@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.3.1
     - patch
     - NIST800-171_3.3.1
@@ -21,6 +22,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.4.1
     - patch
     - encryption_oracle
@@ -36,6 +38,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.4.2
     - patch
     - credentialsdelegation
@@ -52,6 +55,7 @@
     - win25cis_rule_18_9_5_1
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.5.1
@@ -69,6 +73,7 @@
     - win25cis_rule_18_9_5_2
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.5.2
@@ -107,6 +112,7 @@
     - win25cis_rule_18_9_5_3
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.5.3
@@ -124,6 +130,7 @@
     - win25cis_rule_18_9_5_4
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.5.4
@@ -142,6 +149,7 @@
     - not prelim_win25cis_is_domain_controller
     - win25cis_ngws
   tags:
+    - automated
     - ngws-memberserver
     - rule_18.9.5.5
     - patch
@@ -159,6 +167,7 @@
     - prelim_win25cis_is_domain_controller
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - rule_18.9.5.6
     - patch
@@ -175,6 +184,7 @@
     - win25cis_rule_18_9_5_7
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.5.7
@@ -192,6 +202,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.7.2
     - patch
     - metadata
@@ -210,6 +221,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.13.1
     - patch
     - drivers
@@ -225,6 +237,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.2
     - patch
     - NIST800-171_3.4.1
@@ -254,6 +267,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.3
     - patch
     - NIST800-171_3.4.1
@@ -283,6 +297,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.4
     - patch
     - NIST800-171_3.4.1
@@ -312,6 +327,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.5
     - patch
     - NIST800-171_3.4.1
@@ -341,6 +357,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.6
     - patch
     - NIST800-171_3.4.2
@@ -359,6 +376,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.19.7
     - patch
     - NIST800-171_3.4.1
@@ -387,6 +405,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.20.1.1
     - patch
     - drivers
@@ -405,6 +424,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.2
     - patch
     - handwriting
@@ -422,6 +442,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.3
     - patch
     - handwriting
@@ -441,6 +462,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.4
     - patch
     - wizard
@@ -461,6 +483,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.20.1.5
     - patch
     - wizard
@@ -481,6 +504,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.6
     - patch
     - printers
@@ -500,6 +524,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.7
     - patch
     - wizard
@@ -520,6 +545,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.8
     - patch
     - search
@@ -539,6 +565,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.9
     - patch
     - printers
@@ -558,6 +585,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.10
     - patch
     - wizard
@@ -577,6 +605,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.11
     - patch
     - wmcei
@@ -596,6 +625,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.12
     - patch
     - wmcei
@@ -615,6 +645,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.20.1.13
     - patch
     - errorreporting
@@ -643,6 +674,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.23.1
     - patch
     - certificates
@@ -667,6 +699,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.24.1
     - patch
     - dma
@@ -684,6 +717,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.1
     - patch
     - laps
@@ -722,6 +756,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.2
     - patch
     - laps
@@ -739,6 +774,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.3
     - patch
     - laps
@@ -762,6 +798,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.4
     - patch
     - laps
@@ -779,6 +816,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.5
     - patch
     - laps
@@ -813,6 +851,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.6
     - patch
     - laps
@@ -847,6 +886,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.7
     - patch
     - laps
@@ -887,6 +927,7 @@
     - prelim_win25cis_is_domain_member
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.25.8
     - patch
     - laps
@@ -894,8 +935,7 @@
     - NIST800-53R5_IA-5_1
   block:
     - name: "18.9.25.8 | PATCH | Ensure Post-authentication actions: Actions is set to Enabled: Reset the password and logoff the managed account or higher | Set Variable"
-      when:
-        - win25cis_laps_postauthenticationactions_value == 3 or win25cis_laps_postauthenticationactions_value == 5
+      when: win25cis_laps_postauthenticationactions_value == 3 or win25cis_laps_postauthenticationactions_value == 5
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
         name: PostAuthenticationActions
@@ -925,6 +965,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.26.1
     - patch
     - lsass
@@ -935,11 +976,12 @@
     data: 0
     type: dword
 
-- name: "18.9.26.2 | PATCH | Ensure Configures LSASS to run as a protected process is set to Enabled: Enabled with UEFI Lock"
+- name: "18.9.26.2 | PATCH | NG Ensure Configures LSASS to run as a protected process is set to Enabled: Enabled with UEFI Lock"
   when:
     - win25cis_rule_18_9_26_2
     - win25cis_ngws
   tags:
+    - automated
     - ngws-domaincontroller
     - ngws-memberserver
     - rule_18.9.26.2
@@ -957,6 +999,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.27.1
     - patch
     - NIST800-171_3.4.2
@@ -972,6 +1015,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.1
     - patch
     - accounts
@@ -1002,6 +1046,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.2
     - patch
     - NIST800-171_3.1.7
@@ -1017,6 +1062,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.3
     - patch
     - enumerate
@@ -1031,9 +1077,10 @@
 - name: "18.9.28.4 | PATCH | Ensure Enumerate local users on domain-joined computers is set to Disabled MS only | Member Server"
   when:
     - win25cis_rule_18_9_28_4
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.28.4
     - patch
     - enumerate
@@ -1050,6 +1097,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.5
     - patch
     - notifications
@@ -1069,6 +1117,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.6
     - patch
     - logon
@@ -1088,6 +1137,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.28.7
     - patch
     - pin
@@ -1107,6 +1157,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.30.1.1
     - patch
     - netlogon
@@ -1124,6 +1175,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.31.1
     - patch
     - clipboard
@@ -1143,6 +1195,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.31.2
     - patch
     - NIST800-171_3.14.6
@@ -1159,6 +1212,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.33.6.1
     - patch
     - power
@@ -1176,6 +1230,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.33.6.2
     - patch
     - power
@@ -1193,6 +1248,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.33.6.3
     - patch
     - power
@@ -1210,6 +1266,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.33.6.4
     - patch
     - logon
@@ -1226,6 +1283,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.35.1
     - patch
     - cora
@@ -1245,6 +1303,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.35.2
     - patch
     - csra
@@ -1265,6 +1324,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.36.1
     - patch
     - rpc
@@ -1283,6 +1343,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level2-memberserver
+    - automated
     - rule_18.9.36.2
     - patch
     - rpc
@@ -1295,19 +1356,20 @@
     data: 1
     type: dword
 
-- name: "18.9.39.1 | PATCH | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher"
+- name: "18.9.39.1 | PATCH | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher DC only"
   when:
     - win25cis_rule_18_9_39_1
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_18.9.39.1
     - patch
     - sam
     - NIST800-53R5_SC-39
     - NIST800-53R5_SI-16
   block:
-    - name: "18.9.39.1 | PATCH | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher | Set Variable"
+    - name: "18.9.39.1 | PATCH | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher DC only | Set Variable"
       when: win25cis_roca_configuration == 1 or win25cis_roca_configuration == 2
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\SAM
@@ -1315,7 +1377,7 @@
         data: "{{ win25cis_roca_configuration }}"
         type: dword
 
-    - name: "18.9.39.1 | AUDIT | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher | Warning Check For Variable Standards"
+    - name: "18.9.39.1 | AUDIT | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher DC only | Warning Check For Variable Standards"
       when:
         - win25cis_roca_configuration != 1
         - win25cis_roca_configuration != 2
@@ -1324,7 +1386,7 @@
           - "Warning!! You have an invalid setting for win25cis_roca_configuration. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "18.9.39.1 | AUDIT | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher | Log a warning"
+    - name: "18.9.39.1 | AUDIT | Ensure Configure validation of ROCA-vulnerable WHfB keys during authentication is set to Enabled: Audit or higher DC only | Log a warning"
       when:
         - win25cis_roca_configuration != 1
         - win25cis_roca_configuration != 2
@@ -1333,12 +1395,13 @@
       vars:
         warn_control_id: '18.9.39.1'
 
-- name: "18.9.39.2 | PATCH | Ensure 'Configure SAM change password RPC methods policy' is set to Enabled: Allow strong encryption change password RPC method only"
+- name: "18.9.39.2 | PATCH | Ensure 'Configure SAM change password RPC methods policy' is set to Enabled: Allow strong encryption change password RPC method only DC only"
   when:
     - win25cis_rule_18_9_39_2
     - prelim_win25cis_is_domain_controller
   tags:
     - level1-domaincontroller
+    - automated
     - rule_18.9.39.2
     - patch
     - sam
@@ -1352,12 +1415,13 @@
     data: 2
     type: dword
 
-- name: "18.9.39.3 | PATCH | Ensure 'Configure SAM change password RPC methods policy' is set to Enabled: Block all change password RPC methods"
+- name: "18.9.39.3 | PATCH | Ensure 'Configure SAM change password RPC methods policy' is set to Enabled: Block all change password RPC methods MS only"
   when:
     - win25cis_rule_18_9_39_3
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.39.3
     - patch
     - sam
@@ -1376,6 +1440,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.47.5.1
     - patch
     - msdt
@@ -1395,6 +1460,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.47.11.1
     - patch
     - pertrack
@@ -1414,6 +1480,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.9.49.1
     - patch
     - advertising
@@ -1431,6 +1498,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.9.51.1.1
     - patch
     - ntp
@@ -1450,6 +1518,7 @@
     - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_18.9.51.1.2
     - patch
     - ntp

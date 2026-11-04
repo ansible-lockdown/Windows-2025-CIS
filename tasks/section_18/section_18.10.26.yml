@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.1.1
     - patch
     - eventlog
@@ -20,6 +21,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.1.2
     - patch
     - eventlog
@@ -52,6 +54,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.2.1
     - patch
     - eventlog
@@ -67,6 +70,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.2.2
     - patch
     - eventlog
@@ -99,6 +103,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.3.1
     - patch
     - eventlog
@@ -114,6 +119,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.3.2
     - patch
     - eventlog
@@ -146,6 +152,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.4.1
     - patch
     - eventlog
@@ -161,6 +168,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.10.26.4.2
     - patch
     - eventlog

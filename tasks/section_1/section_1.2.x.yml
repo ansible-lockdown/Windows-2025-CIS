@@ -1,9 +1,5 @@
 ---
 
-# Order is fixed: 1.2.2 sets the threshold, then 1.2.1 the duration, then 1.2.4 the reset counter,
-# which Windows requires to be no greater than the duration. Applying 1.2.2 is what enables lockout,
-# and Windows then auto-populates duration and reset to 30, so the reconcile step below re-reads the
-# pair after 1.2.2 and lowers the reset counter only when it would block 1.2.1.
 - name: "1.2.2 | PATCH | Ensure Account lockout threshold is set to 5 or fewer invalid logon attempt(s), but not 0"
   when:
     - win25cis_rule_1_2_2
@@ -11,6 +7,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_1.2.2
     - patch
     - account
@@ -53,6 +50,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_1.2.1
     - patch
     - account
@@ -95,6 +93,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_1.2.1
     - patch
     - account
@@ -106,7 +105,8 @@
     - name: "1.2.1 | PATCH | Ensure Account lockout duration is set to 15 or more minutes | Lower the reset counter so the duration can be applied"
       when:
         - discovered_win25cis_current_lockout_reset | int > win25cis_account_lockout_duration | int
-        - win25cis_account_lockout_counter_reset | int <= discovered_win25cis_current_lockout_duration | int
+        - win25cis_account_lockout_counter_reset | int <= discovered_win25cis_current_lockout_duration | int or
+          discovered_win25cis_current_lockout_duration | int == 0
       community.windows.win_security_policy:
         section: System Access
         key: ResetLockoutCount
@@ -140,6 +140,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_1.2.4
     - patch
     - account
@@ -199,12 +200,13 @@
       vars:
         warn_control_id: '1.2.4'
 
-- name: "1.2.3 | PATCH | Ensure Allow Administrator account lockout is set to Enabled"
+- name: "1.2.3 | PATCH | Ensure Allow Administrator account lockout is set to Enabled MS only"
   when:
     - win25cis_rule_1_2_3
     - not prelim_win25cis_account_policy_is_domain_scoped
   tags:
     - level1-memberserver
+    - manual
     - rule_1.2.3
     - patch
     - password

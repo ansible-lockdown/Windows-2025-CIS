@@ -23,10 +23,12 @@ run_heavy_tests: {{ audit_run_heavy_tests }}
 
 win25cis_account_lockout_counter_reset: {{ win25cis_account_lockout_counter_reset | to_json }}
 win25cis_account_lockout_duration: {{ win25cis_account_lockout_duration | to_json }}
+win25cis_adfs_installed: {{ win25cis_adfs_installed | default(false) | to_json }}
 win25cis_allow_admin_account_lockout: {{ win25cis_allow_admin_account_lockout | to_json }}
 win25cis_allow_telemetry: {{ win25cis_allow_telemetry | to_json }}
 win25cis_allow_windows_ink_workspace: {{ win25cis_allow_windows_ink_workspace | to_json }}
 win25cis_application_max_log_file_size: {{ win25cis_application_max_log_file_size | to_json }}
+win25cis_apply_generate_security_audits_on_iis_adfs: {{ win25cis_apply_generate_security_audits_on_iis_adfs | to_json }}
 win25cis_bad_login_lockout_count: {{ win25cis_bad_login_lockout_count | to_json }}
 win25cis_brute_force_protection_aggressiveness: {{ win25cis_brute_force_protection_aggressiveness | to_json }}
 win25cis_cached_logons_count: {{ win25cis_cached_logons_count | to_json }}
@@ -37,6 +39,7 @@ win25cis_domain_member_maximum_password_age: {{ win25cis_domain_member_maximum_p
 win25cis_enable_netbios_policy: {{ win25cis_enable_netbios_policy | to_json }}
 win25cis_force_kerberos_for_rpc: {{ win25cis_force_kerberos_for_rpc | to_json }}
 win25cis_idle_rdp_session_disconnect_time: {{ win25cis_idle_rdp_session_disconnect_time | to_json }}
+win25cis_iis_and_web_services_installed: {{ win25cis_iis_and_web_services_installed | default(false) | to_json }}
 win25cis_inactivity_timeout_seconds: {{ win25cis_inactivity_timeout_seconds | to_json }}
 win25cis_invalid_authentication_delay_time: {{ win25cis_invalid_authentication_delay_time | to_json }}
 win25cis_laps_backupdirectory_value: {{ win25cis_laps_backupdirectory_value | to_json }}

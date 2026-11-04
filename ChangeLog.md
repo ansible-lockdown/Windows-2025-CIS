@@ -3,10 +3,21 @@
 ## CIS Benchmark v1.0.0
 ## October 2026 Updates
 
+  - feat: 2.2.31 skipped with a warning on IIS and ADFS hosts, win25cis_apply_generate_security_audits_on_iis_adfs applies it anyway
   - fix: 2.3.5.2 VulnerableChannelAllowList removed, not written as 0
   - fix: 1.2.4 checked against the live lockout duration when 1.2.1 is off
+  - fix: 1.2.1 lowers the reset counter when the lockout duration is Never
   - fix: check_mode false on the installation type and feature discovery reads
   - style: fetch_audit_output.yml loop placed before register
+  - fix: 18.4.4 sets EnableCertPaddingCheck under Wow6432Node
+  - fix: warnings no longer name a non-existent GPO role
+  - style: automated and manual tags on every control
+  - style: unique names on 18.6.14.1, 2.2.33 and 2.2.38 sub-tasks
+  - style: single-item when and tags lists inlined
+  - style: comments removed from task files
+  - style: section_19 task key order
+  - title: 14 control titles aligned to the benchmark
+  - fix: 2.3.7.6, 2.3.7.8, 2.3.9.5, 18.4.1, 18.6.21.2 and 18.9.28.4 set on standalone servers, helps compliance scanning
 
 ## CIS Benchmark v1.0.0
 ## September 2026 Updates - audit content

@@ -50,8 +50,7 @@
   when:
     - setup_audit
     - not ansible_check_mode
-  tags:
-    - setup_audit
+  tags: setup_audit
   ansible.builtin.import_tasks:
     file: LE_audit_setup.yml
 
@@ -59,8 +58,7 @@
   when:
     - run_audit
     - not ansible_check_mode
-  tags:
-    - run_audit
+  tags: run_audit
   ansible.builtin.import_tasks:
     file: pre_remediation_audit.yml
 
@@ -109,8 +107,7 @@
     - run_audit
     - not audit_only
     - not ansible_check_mode
-  tags:
-    - run_audit
+  tags: run_audit
   ansible.builtin.import_tasks:
     file: post_remediation_audit.yml
 
@@ -128,8 +125,6 @@
         path: "{{ win25cis_ansible_facts_path }}"
         state: directory
 
-    # JSON, not the INI the Linux roles write - ansible.windows.setup reads
-    # local facts only as .ps1 or .json, so an INI file would never be read.
     - name: "Main | Create the compliance facts file"
       ansible.windows.win_template:
         src: compliance_facts.json.j2
@@ -141,8 +136,7 @@
     - fetch_audit_output
     - run_audit
     - not ansible_check_mode
-  tags:
-    - always
+  tags: always
   ansible.builtin.import_tasks:
     file: fetch_audit_output.yml
 
@@ -150,8 +144,7 @@
   when:
     - run_audit
     - not ansible_check_mode
-  tags:
-    - run_audit
+  tags: run_audit
   ansible.builtin.debug:
     msg: "{{ audit_results.split('\n') }}"
 

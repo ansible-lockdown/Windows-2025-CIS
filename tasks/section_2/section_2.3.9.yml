@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.9.1
     - patch
     - account
@@ -38,6 +39,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.9.2
     - patch
     - account
@@ -60,6 +62,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.9.3
     - patch
     - account
@@ -82,6 +85,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.9.4
     - patch
     - account
@@ -93,13 +97,13 @@
     data: 1
     type: dword
 
-- name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher | MS Only"
+- name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher MS only"
   when:
     - win25cis_rule_2_3_9_5
-    - prelim_win25cis_is_domain_member
-    - not prelim_win25cis_is_standalone
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.3.9.5
     - patch
     - account
@@ -120,7 +124,7 @@
     - NIST800-53R5_SA-8
     - NIST800-53R5_SA-10
   block:
-    - name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher | Apply Registry Setting | MS Only"
+    - name: "2.3.9.5 | PATCH | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher MS only | Apply Registry Setting"
       when:
         - win25cis_smb_server_name_hardening_level == 1 or
           win25cis_smb_server_name_hardening_level == 2
@@ -130,7 +134,7 @@
         data: "{{ win25cis_smb_server_name_hardening_level }}"
         type: dword
 
-    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher | Warning Check For Variable Standards | MS Only"
+    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher MS only | Warning Check For Variable Standards"
       when:
         - win25cis_smb_server_name_hardening_level == 0 or
           win25cis_smb_server_name_hardening_level > 2
@@ -139,7 +143,7 @@
           - "Warning!! You have an invalid number variable set for win25cis_smb_server_name_hardening_level. Please read"
           - "the notes for the variable and make the necessary change to the variable to be in compliance."
 
-    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher | Warn Count"
+    - name: "2.3.9.5 | AUDIT | Ensure Microsoft network server: Server SPN target name validation level is set to Accept if provided by client or higher MS only | Warn Count"
       when:
         - win25cis_smb_server_name_hardening_level == 0 or
           win25cis_smb_server_name_hardening_level > 2

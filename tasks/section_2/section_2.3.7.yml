@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.1
     - patch
     - logon
@@ -23,6 +24,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.2
     - patch
     - logon
@@ -41,6 +43,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.3
     - patch
     - logon
@@ -85,6 +88,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.4
     - patch
     - logon
@@ -101,6 +105,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.5
     - patch
     - logon
@@ -115,9 +120,10 @@
 - name: "2.3.7.6 | PATCH | Ensure Interactive logon Number of previous logons to cache in case domain controller is not available is set to 4 or fewer logons MS only | Member Server"
   when:
     - win25cis_rule_2_3_7_6
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level2-memberserver
+    - automated
     - rule_2.3.7.6
     - patch
     - logon
@@ -151,6 +157,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.7
     - patch
     - logon
@@ -188,9 +195,10 @@
 - name: "2.3.7.8 | PATCH | Ensure Interactive logon Require Domain Controller Authentication to unlock workstation is set to Enabled MS only | Member Server"
   when:
     - win25cis_rule_2_3_7_8
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level1-memberserver
+    - automated
     - rule_2.3.7.8
     - patch
     - logon
@@ -212,6 +220,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_2.3.7.9
     - patch
     - logon

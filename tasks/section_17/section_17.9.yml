@@ -5,6 +5,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_17.9.1
     - patch
     - NIST800-171_3.3.1
@@ -35,6 +36,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_17.9.2
     - patch
     - NIST800-171_3.3.1
@@ -65,6 +67,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_17.9.3
     - patch
     - NIST800-171_3.3.1
@@ -91,6 +94,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_17.9.4
     - patch
     - NIST800-171_3.3.1
@@ -117,6 +121,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_17.9.5
     - patch
     - NIST800-171_3.3.1

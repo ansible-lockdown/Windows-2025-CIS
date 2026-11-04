@@ -109,6 +109,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.5.1
     - patch
     - dns
@@ -126,6 +127,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.1
     - patch
     - smb
@@ -142,6 +144,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.2
     - patch
     - smb
@@ -158,6 +161,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.3
     - patch
     - smb
@@ -174,6 +178,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.4
     - patch
     - smb
@@ -190,6 +195,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.5
     - patch
     - smb
@@ -206,6 +212,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.6
     - patch
     - smb
@@ -230,6 +237,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.7.7
     - patch
     - smb
@@ -263,6 +271,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.1
     - patch
     - smb
@@ -279,6 +288,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.2
     - patch
     - smb
@@ -295,6 +305,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.3
     - patch
     - smb
@@ -311,6 +322,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.4
     - patch
     - fonts
@@ -328,6 +340,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.5
     - patch
     - smb
@@ -344,6 +357,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.6
     - patch
     - smb
@@ -368,6 +382,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.8.7
     - patch
     - fonts
@@ -385,6 +400,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.9.1
     - patch
     - mapper
@@ -425,6 +441,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.9.2
     - patch
     - rspndr
@@ -465,6 +482,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.10.2
     - patch
     - p2p
@@ -484,6 +502,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.11.2
     - patch
     - networkconnections
@@ -512,6 +531,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.11.3
     - patch
     - networkconnections
@@ -531,6 +551,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.11.4
     - patch
     - networkconnections
@@ -547,20 +568,21 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.14.1
     - patch
     - paths
     - unc
     - NIST800-53R5_IA-3_1
   block:
-    - name: "18.6.14.1 | PATCH | Ensure 'Hardened UNC Paths' is set to 'Enabled, with Require Mutual Authentication, Require Integrity, and Require Privacy set for all NETLOGON and SYSVOL shares"
+    - name: "18.6.14.1 | PATCH | Ensure 'Hardened UNC Paths' is set to 'Enabled, with Require Mutual Authentication, Require Integrity, and Require Privacy set for all NETLOGON and SYSVOL shares | NETLOGON"
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
         name: "\\\\*\\NETLOGON"
         data: "RequireMutualAuthentication=1, RequireIntegrity=1, RequirePrivacy=1"
         type: string
 
-    - name: "18.6.14.1 | PATCH | Ensure 'Hardened UNC Paths' is set to 'Enabled, with Require Mutual Authentication, Require Integrity, and Require Privacy set for all NETLOGON and SYSVOL shares"
+    - name: "18.6.14.1 | PATCH | Ensure 'Hardened UNC Paths' is set to 'Enabled, with Require Mutual Authentication, Require Integrity, and Require Privacy set for all NETLOGON and SYSVOL shares | SYSVOL"
       ansible.windows.win_regedit:
         path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Networkprovider\Hardenedpaths
         name: "\\\\*\\SYSVOL"
@@ -572,6 +594,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.19.2.1
     - patch
     - ipv6
@@ -591,6 +614,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.20.1
     - patch
     - wireless
@@ -640,6 +664,7 @@
   tags:
     - level2-domaincontroller
     - level2-memberserver
+    - automated
     - rule_18.6.20.2
     - patch
     - connectnow
@@ -659,6 +684,7 @@
   tags:
     - level1-domaincontroller
     - level1-memberserver
+    - automated
     - rule_18.6.21.1
     - patch
     - NIST800-171_3.4.1
@@ -686,9 +712,10 @@
 - name: "18.6.21.2 | PATCH | Ensure Prohibit connection to non-domain networks when connected to domain authenticated network is set to Enabled MS only | Member Server"
   when:
     - win25cis_rule_18_6_21_2
-    - prelim_win25cis_is_domain_member
+    - not prelim_win25cis_is_domain_controller
   tags:
     - level2-memberserver
+    - automated
     - rule_18.6.21.2
     - patch
     - NIST800-171_3.13.1
